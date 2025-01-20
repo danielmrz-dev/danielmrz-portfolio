@@ -1,0 +1,133 @@
+@use "../../../scss/variables" as var;
+@use "../../../scss/mixins" as mix;
+
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    color: var.$White;
+    padding: 3.75rem 1rem 1rem 1rem;
+    gap: 3.125rem;
+    background: url(../../../assets/images/pattern-rings.svg) no-repeat left top;
+    background-position: left -347px bottom 14px;
+    &__text {
+        display: grid;
+        gap: 1.25rem;
+    }
+    &__title {
+        font-size: 2.5rem;
+        line-height: 2.5rem;
+        letter-spacing: -1.14px;
+        font-weight: 600;
+    }
+    &__description {
+        color: var.$Grey;
+        font-size: 1rem;
+        line-height: 1.625rem;
+    }
+    &__inputs {
+        display: grid;
+        gap: 2rem;
+    }
+    &__input {
+        background-color: transparent;
+        color: var.$White;
+        border: none;
+        border-bottom: 1px solid var.$White;
+        padding: .80rem .80rem .80rem 1.5rem;
+        font-size: 1rem;
+        line-height: 26px;
+        min-width: 100%;
+        cursor: pointer;
+        &-container {
+            position: relative;
+        }
+        &:focus {
+            border-color: var.$Green;
+            outline: none;
+        }
+    }
+    &__error-msg {
+        position: absolute;
+        right: 0;
+        bottom: -20px;
+        font-size: 0.75rem;
+        color: var.$Red;
+        transition: opacity .2s ease;
+    }
+    &__error-icon {
+        position: absolute;
+        right: 10px;
+        bottom: 10.5px;
+        transition: opacity .2s ease;
+    }
+    &__submit-btn {
+        border: none;
+        @include mix.buttonStyle();
+        margin: 0;
+        align-self: flex-end;
+        justify-self: end;
+    }
+    .error-border {
+        border-bottom: 1px solid var.$Red;
+    }
+}
+
+@media screen and (min-width: 768px) {
+    .contact-form {
+        gap: 3.125rem;
+        padding: 3.75rem 0 5rem;
+        margin: auto;
+        background-position: left -365px bottom 5px;
+        &__text {
+            max-width: 445px;
+            margin: auto;
+        }
+        &__title {
+            font-size: 4.5rem;
+            line-height: 4.5rem;
+            letter-spacing: -2.05px;
+        }
+        &__description {
+            font-size: 1.125rem;
+            line-height: 1.75rem;
+        }
+        &__inputs {
+            min-width: 445px;
+            margin: auto;
+        }
+    }
+}
+
+@media screen and (min-width: 992px) {
+    .contact-form {
+        flex-direction: row;
+        justify-content: space-between;
+        gap: 3.125rem;
+        padding: 5.25rem 3rem;
+        margin: auto;
+        background-position: left -205px bottom 38px;
+        max-width: 1062px;
+        &__text {
+            display: flex;
+            flex-direction: column;
+            text-align: left;
+            gap: 2rem;
+            max-width: 445px;
+            max-height: 327px;
+            margin: 0;
+        }
+        &__title {
+            font-size: 5.5rem;
+            line-height: 5.5rem;
+        }
+        &__inputs {
+            min-width: 445px;
+            max-height: 327px;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+    }
+}

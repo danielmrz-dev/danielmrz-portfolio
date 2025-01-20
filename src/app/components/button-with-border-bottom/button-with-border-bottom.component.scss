@@ -1,0 +1,5 @@
+@use "../../../scss/variables" as var;
+@use "../../../scss/mixins" as mix;
+.button {
+    @include mix.buttonStyle();
+}

@@ -1,0 +1,53 @@
+<form class="contact-form" id="contact-form" [formGroup]="contactForm" (ngSubmit)="onSubmit(contactForm)">
+    <div class="contact-form__text">
+        <h6 class="contact-form__title">Contact</h6>
+        <p class="contact-form__description">I would love to hear about your project and how I could help. Please fill in the form, and I’ll get back to you as soon as possible.</p>
+    </div>
+    <div class="contact-form__inputs">
+        <div class="contact-form__input-container">
+            <input class="contact-form__input" type="text" placeholder="NAME" formControlName="name" appOnlyLetters [ngClass]="{'error-border': name.touched && name.hasError('required')}">
+            <ng-container *ngIf="name.touched && name.hasError('required')">
+                <span class="contact-form__error-msg" >Your name is required</span>
+                <span class="contact-form__error-icon">
+                    <img src="error-icon.png" alt="">
+                </span>
+            </ng-container>
+        </div>
+        <div class="contact-form__input-container">
+            <input 
+                class="contact-form__input"
+                type="email" 
+                placeholder="EMAIL" 
+                [ngClass]="
+                    {'error-border': 
+                        (email.touched && email.hasError('required')) || 
+                        (email.touched && !email.hasError('required') && email.hasError('invalidEmailPattern'))}"
+                formControlName="email" 
+                appEmailValidator
+            >
+            <ng-container *ngIf="email.touched && email.hasError('required')">
+                <span class="contact-form__error-msg">Your email address is required</span>
+                <span class="contact-form__error-icon">
+                    <img src="error-icon.png" alt="">
+                </span>
+            </ng-container>
+            <ng-container *ngIf="email.touched && !email.hasError('required') && email.hasError('invalidEmailPattern')">
+                <span class="contact-form__error-msg">Sorry, invalid format here</span>
+                <span class="contact-form__error-icon">
+                    <img src="error-icon.png" alt="">
+                </span>
+            </ng-container>
+            
+        </div>
+        <div class="contact-form__input-container">
+            <textarea rows="4" class="contact-form__input" placeholder="MESSAGE" [ngClass]="{'error-border': message.touched && message.hasError('required')}" formControlName="message"></textarea>
+            <ng-container *ngIf="message.touched && message.hasError('required')">
+                <span class="contact-form__error-msg">Your message is required</span>
+                <span class="contact-form__error-icon">
+                    <img src="error-icon.png" alt="">
+                </span>
+            </ng-container>
+        </div>
+        <button type="submit" class="contact-form__submit-btn">Send Message</button>
+    </div>
+</form>

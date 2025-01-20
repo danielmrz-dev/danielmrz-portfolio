@@ -1,0 +1,25 @@
+<section class="projects">
+    <div class="projects__header">
+        <h4 class="projects__title">Projects</h4>
+        <app-button-with-border-bottom buttonText="Contact me" targetComponent="contact-form" class="projects__header-btn"></app-button-with-border-bottom>
+    </div>
+    <ul class="projects__list">
+        <li class="projects__project" *ngFor="let project of projectsList; let i = index">
+            <picture class="projects__project-image">
+                <source [srcset]="project.images.large" media="(min-width: 600px)" type="image/webp">
+                <img [src]="project.images.small" alt="">
+            </picture>
+            <div class="projects__project-name-and-stack">
+                <h5 class="projects__project-name"> {{ project.name }} </h5>
+                <ul class="projects__project-stack-list">
+                    <li class="projects__project-stack-item" *ngFor="let technology of project.technologies">{{ technology }}</li>
+                </ul>
+            </div>
+            <div class="projects__project-actions-btns" [ngClass]="{ 'hover': projectHovered === i }" (mouseenter)="onMouseEnter(i)" (mouseleave)="onMouseLeave()">
+                <app-button-with-border-bottom buttonText="View Project" [link]="project.liveSite" targetComponent="" class="projects__header-btn"></app-button-with-border-bottom>
+                <app-button-with-border-bottom buttonText="View Code" [link]="project.repository" targetComponent="" class="projects__header-btn"></app-button-with-border-bottom>
+            </div>
+        </li>
+    </ul>
+</section>
+

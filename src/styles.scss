@@ -1,0 +1,32 @@
+@use './scss/variables' as var;
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: var.$Space-Grotesk;
+    list-style-type: none;
+}
+
+body {
+    background-color: var.$Black;
+    background-image: 
+        url(./assets/images/pattern-rings.svg), 
+        url(./assets/images/pattern-circle.svg),
+        url(./assets/images/pattern-rings.svg);
+    background-position: -347px  124px, right -65px top 252px, right -347px top 1278px;
+    background-repeat: no-repeat, no-repeat, no-repeat;
+}
+
+@media screen and (min-width: 768px) {
+    body {
+        background-position: -270px  86px, right -65px top 550px, right -360px top 1047px;
+        background-size: 530px 129px, 0 0, 530px 129px;
+    }
+}
+
+@media screen and (min-width: 992px) {
+    body {
+        background-position: -100px  133px, right -65px top 550px, right -239px top 1077px;
+    }
+}

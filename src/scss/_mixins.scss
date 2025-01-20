@@ -1,0 +1,21 @@
+@use "./variables" as var;
+
+@mixin buttonStyle() {
+    font-size: 1rem;
+    font-weight: 500;
+    letter-spacing: 2.29px;
+    line-height: 1.625rem;
+    text-transform: uppercase;
+    border-bottom: 2px solid var.$Green;
+    width: fit-content;
+    margin: auto;
+    padding-bottom: 0.625rem;
+    text-decoration: none;
+    background-color: transparent;
+    color: var.$White;
+    transition: color .2s ease;
+    cursor: pointer;
+    &:hover {
+        color: var.$Green;
+    }
+}

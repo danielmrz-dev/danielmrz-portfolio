@@ -1,0 +1,142 @@
+@use "../../../scss/variables" as var;
+
+.introduction {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    color: var.$White;
+    padding: 1rem;
+    &__image-container {
+        position: relative;
+    }
+    &__profile-picture {
+        max-width: 174px;
+        position: relative;
+        top: -128px;
+        margin-bottom: -90px;
+        z-index: -1;
+    }
+    &__text {
+        display: flex;
+        flex-direction: column;
+        gap: 1.5rem;
+    }
+    &__title {
+        font-size: 2.5rem;
+        letter-spacing: -1.14px;
+        line-height: 40px;
+        font-weight: 600;
+    }
+    &__name {
+        position: relative;
+        &::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            height: 4px;
+            width: 100%;
+            background-color: var.$Green;
+        }
+    }
+    &__description {
+        color: var.$Grey;
+    }
+    .circle {
+        display: none;
+    }
+}
+
+@media screen and (min-width: 768px) {
+    .introduction {
+        text-align: start;
+        align-items: start;
+        justify-content: flex-start;
+        padding: 3.8rem 2rem 2rem 2rem;
+        overflow: hidden;
+        &__image-container {
+            position: static;
+        }
+        &__profile-picture {
+            max-width: 322px;
+            position: absolute;
+            top: 0;
+            right: 0;
+        }
+        &__text {
+            gap: 3.75rem;
+            max-width: 444px;
+            .btn {
+                transform: translateY(-10px);
+            }
+        }
+        &__title {
+            font-size: 4.5rem;
+            letter-spacing: -2.05px;
+            line-height: 4.5rem;
+            .nice-to {
+                display: block;
+            }
+        }
+        &__description {
+            color: var.$Grey;
+            font-size: 1.125rem;
+            line-height: 1.75rem;
+        }
+        .circle {
+            display: block;
+            position: absolute;
+            right: 0;
+            top: 469px;
+        }
+    }
+}
+
+@media screen and (min-width: 992px) {
+    .introduction {
+        max-width: 1062px;
+        margin: auto;
+        padding: 6rem 3rem 2rem;
+        &__profile-picture {
+            max-width: 445px;
+            top: 0;
+            right: 50px;
+            @media screen and (min-width: 1070px) {
+                left: 53.1%;
+                right: auto;
+            }
+            @media screen and (min-width: 1450px) {
+                left: 52.5%;
+            }
+        }
+        &__text {
+            gap: 2.688rem;
+            max-width: 100%;
+            .btn {
+                transform: translateY(0px);
+            }
+        }
+        &__title {
+            font-size: 5.5rem;
+            line-height: 5.5rem;
+            max-width: 14ch;
+            .nice-to {
+                display: inline;
+            }
+        }
+        &__description {
+            width: 40ch;
+        }
+        .circle {
+            right: 432px;
+            top: 525px;
+            @media screen and (min-width: 1070px) {
+                right: 42%;
+            }
+            @media screen and (min-width: 1450px) {
+                right: 42.6%;
+            }
+        }
+    }
+}

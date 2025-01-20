@@ -1,0 +1,110 @@
+@use "../../../scss/variables" as var;
+
+.projects {
+    display: flex;
+    flex-direction: column;
+    color: var.$White;
+    padding: 1.5rem 1.5rem 5rem 1.5rem;
+    gap: 2.563rem;
+    &__header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        &-btn {
+            align-self: flex-start;
+        }
+    }
+    &__title {
+        font-size: 2.5rem;
+        line-height: 2.5rem;
+    }
+    &__list {
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        gap: 2.5rem;
+    }
+    &__project {
+        display: flex;
+        flex-direction: column;
+        gap: 1.25rem;
+        &-image {
+            img {
+                width: 100%;
+            }
+        }
+        &-actions-btns {
+            display: flex;
+            align-items: center;
+            gap: 1.875rem;
+        }
+    }
+    &__project-name-and-stack {
+        display: flex;
+        flex-direction: column;
+        gap: 0.438rem;
+    }
+    &__project-name {
+        font-size: 1.5rem;
+        line-height: 2rem;
+        text-transform: uppercase;
+        font-weight: 600;
+    }
+    &__project-stack-list {
+        display: flex;
+        align-items: center;
+        gap: 1.125rem;
+    }
+    &__project-stack-item {
+        font-size: 1.125rem;
+        line-height: 1.75rem;
+    }
+}
+
+@media screen and (min-width: 768px) {
+    .projects {
+        gap: 3.75rem;
+        padding: 1.5rem 1.5rem 6.25rem;
+        &__header {
+            &-btn {
+                align-self: center;
+            }
+        }
+        &__title {
+            font-size: 4.5rem;
+            line-height: 4.5rem;
+        }
+        &__list {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            flex-wrap: wrap;
+            gap: 3.75rem 1.5rem;
+        }
+    }
+}
+
+@media screen and (min-width: 992px) {
+    .projects {
+        gap: 3.75rem;
+        padding: 1.5rem 3rem 6.25rem;
+        max-width: 1062px;
+        margin: auto;
+        &__project {
+            position: relative;
+            &-actions-btns {
+                position: absolute;
+                background-color: var.$Dark-Grey-Opac;
+                width: 100%;
+                height: calc(100% - 5.438rem);
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                opacity: 0;
+                transition: opacity .2s ease;
+            }
+        }
+    }
+}
+.hover {
+    opacity: 1;
+}

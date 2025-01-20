@@ -1,0 +1,32 @@
+@use "./../scss/variables" as var;
+
+footer {
+    background-color: var.$Dark-Grey;
+    padding-bottom: 40px;
+    .divider {
+        width: calc(100% - 2rem);
+        margin: 87px auto 39px;
+        height: 1px;
+        background-color: #fff;
+    }
+}
+
+@media screen and (min-width: 768px) {
+    footer {
+        padding-bottom: 10px;
+        .divider {
+            width: calc(100% - 2rem);
+            margin: 27px auto 1px;
+        }
+    }
+}
+
+@media screen and (min-width: 992px) {
+    footer {
+        padding-bottom: 3.875rem;
+        .divider {
+            max-width: 1050px;
+            margin: 6px auto 8px;
+        }
+    }
+}

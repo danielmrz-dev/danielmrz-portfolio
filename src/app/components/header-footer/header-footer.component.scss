@@ -1,0 +1,61 @@
+@use "../../../scss/variables" as var;
+
+.header-footer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1.25rem;
+    padding: 1.25rem;
+    &__title {
+        font-size: 1.5rem;
+        color: var.$White;
+        line-height: 2rem;
+        font-weight: bold;
+    }
+    &__links-list {
+        display: flex;
+        justify-content: center;
+        gap: 25px;
+        height: 1.25rem;
+    }
+    &__link {
+        height: 1.25rem;
+        img {
+            height: 1.25rem;
+            transition: scale .2s ease;
+            &:hover {
+                scale: 1.1;
+            }
+        }
+    }
+}
+
+@media screen and (min-width: 768px) {
+    .header-footer {
+        flex-direction: row;
+        justify-content: space-between;
+        padding: 1.813rem 1.875rem 1.875rem 1.875rem;
+        &__title {
+            font-size: 2rem;
+            font-weight: 600;
+        }
+        &__links-list {
+            gap: 2rem;
+        }
+        &__link {
+            height: 1.5rem;
+            img {
+                height: 1.5rem;
+            }
+        }
+    }
+}
+
+@media screen and (min-width: 992px) {
+    .header-footer {
+        max-width: 1062px;
+        margin: auto;
+        padding: 2.438rem 3rem 1.875rem;
+    }
+}

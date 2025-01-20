@@ -1,0 +1,22 @@
+<section class="introduction">
+    <div class="introduction__image-container">
+        <picture>
+            <source media="(min-width: 992px)" srcset="image-profile-desktop.webp" type="image/webp">
+            <source media="(min-width: 768px)" srcset="image-profile-tablet.webp" type="image/webp">
+            <img src="image-profile-mobile.webp" alt="" class="introduction__profile-picture">
+        </picture>
+        <picture>
+            <source media="(min-width: 992px)" srcset="pattern-circle.svg" type="image/webp">
+            <img src="pattern-half-circle.png" alt="" class="circle">
+        </picture>
+    </div>
+    <div class="introduction__text">
+        <h1 class="introduction__title">
+            <span class="nice-to">Nice to</span> meet you! I'm <span class="introduction__name">Adam Keyes</span>.
+        </h1>
+        <p class="introduction__description">
+            Based in the UK, I’m a front-end developer passionate about building accessible web apps that users love.
+        </p>
+        <app-button-with-border-bottom class="btn" buttonText="Contact me" targetComponent="contact-form"></app-button-with-border-bottom>
+    </div>
+</section>
