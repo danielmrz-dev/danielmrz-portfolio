@@ -1,5 +1,9 @@
 @use "../../../scss/variables" as var;
 
+$base-right: 45%;
+$increment: calc((100vw - 1100px) / 200);
+
+
 .introduction {
     display: flex;
     flex-direction: column;
@@ -9,13 +13,22 @@
     padding: 1rem;
     &__image-container {
         position: relative;
+        top: -128px;
+    }
+    &__profile-picture-container {
+        max-width: 240px;
+        min-height: 383px;
+        background-image: linear-gradient(to bottom, var.$Picture-Bg-Dark-Grey-Opac, var.$Picture-Bg-Dark-Grey);
+        margin-bottom: -90px;
+        position: relative;
+        z-index: -1;
+        display: flex;
+        align-items: flex-end;
     }
     &__profile-picture {
-        max-width: 174px;
+        max-width: 100%;
         position: relative;
-        top: -128px;
-        margin-bottom: -90px;
-        z-index: -1;
+        z-index: 0;
     }
     &__text {
         display: flex;
@@ -57,12 +70,15 @@
         overflow: hidden;
         &__image-container {
             position: static;
+            top: -128px;
         }
-        &__profile-picture {
-            max-width: 322px;
+        &__profile-picture-container {
+            max-width: 420px;
+            min-height: 512px;
+            margin-bottom: 0px;
             position: absolute;
-            top: 0;
             right: 0;
+            top: 0;
         }
         &__text {
             gap: 3.75rem;
@@ -72,7 +88,7 @@
             }
         }
         &__title {
-            font-size: 4.5rem;
+            font-size: 4rem;
             letter-spacing: -2.05px;
             line-height: 4.5rem;
             .nice-to {
@@ -81,6 +97,7 @@
         }
         &__description {
             color: var.$Grey;
+            width: 30ch;
             font-size: 1.125rem;
             line-height: 1.75rem;
         }
@@ -88,7 +105,7 @@
             display: block;
             position: absolute;
             right: 0;
-            top: 469px;
+            top: 381px;
         }
     }
 }
@@ -98,17 +115,17 @@
         max-width: 1062px;
         margin: auto;
         padding: 6rem 3rem 2rem;
+        &__image-container {
+            position: static;
+            top: -128px;
+        }
+        &__profile-picture-container {
+            min-width: 500px;
+            min-height: 600px;
+            left: 49.1%;
+        }
         &__profile-picture {
-            max-width: 445px;
-            top: 0;
-            right: 50px;
-            @media screen and (min-width: 1070px) {
-                left: 53.1%;
-                right: auto;
-            }
-            @media screen and (min-width: 1450px) {
-                left: 52.5%;
-            }
+            min-width: 100%;
         }
         &__text {
             gap: 2.688rem;
@@ -118,7 +135,7 @@
             }
         }
         &__title {
-            font-size: 5.5rem;
+            font-size: 4.5rem;
             line-height: 5.5rem;
             max-width: 14ch;
             .nice-to {
@@ -129,14 +146,9 @@
             width: 40ch;
         }
         .circle {
-            right: 432px;
-            top: 525px;
-            @media screen and (min-width: 1070px) {
-                right: 42%;
-            }
-            @media screen and (min-width: 1450px) {
-                right: 42.6%;
-            }
+            top: 472px;
+            left: 50%;
+            transform: translateX(-75px);
         }
     }
 }
