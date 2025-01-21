@@ -2,7 +2,7 @@
     <span class="header-footer__title">danielmariz</span>
     <ul class="header-footer__links-list">
         <li class="header-footer__link-item" *ngFor="let link of socialMediaLinks">
-            <a [href]="link.link" class="header-footer__link" target="_blank" [attr.aria-label]="link.socialMedia" >
+            <a [href]="link.link" class="header-footer__link" rel="noopener noreferrer" target="_blank" [attr.aria-label]="link.socialMedia" >
                 <img [src]="link.icon" [alt]="link.socialMedia">
             </a>
         </li>
