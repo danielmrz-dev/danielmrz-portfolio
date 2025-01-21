@@ -29,6 +29,7 @@ $increment: calc((100vw - 1100px) / 200);
         max-width: 100%;
         position: relative;
         z-index: 0;
+        filter: grayscale(100%);
     }
     &__text {
         display: flex;
