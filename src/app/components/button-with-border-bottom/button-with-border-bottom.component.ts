@@ -9,7 +9,7 @@ import { Component, Input } from '@angular/core';
 })
 export class ButtonWithBorderBottomComponent {
   @Input({ required: true }) buttonText: string = '';
-  @Input({ required: true }) targetComponent: string = '';
+  @Input() targetComponent: string = '';
   @Input() link: string | null = null;
   
   scrollToTarget(evento: Event) {

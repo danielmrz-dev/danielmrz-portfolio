@@ -1,0 +1,36 @@
+<div class="dialog-container">
+    <mat-dialog-content>
+
+        <ng-container *ngIf="status === 'sending'">
+            <p> Enviando... </p>
+            <mat-spinner color="primary" diameter="50" strokeWidth="4"></mat-spinner>
+        </ng-container>
+
+        <ng-container *ngIf="status === 'success'">
+            <div class="message-success">
+                <img src="circle-check-solid.svg" alt="" class="icon-check">
+                <span>
+                    Olá,
+                    <span> {{ data.name| uppercase }}!</span>                
+                </span>
+                <p>
+                    Sua mensagem foi enviada!
+                    <br>
+                    Retornarei seu contato em breve!
+                </p>
+            </div>
+        </ng-container>
+
+        <ng-container *ngIf="status === 'error'">
+            <p>Sinto muito! Não foi possível enviar a sua mensagem!</p>
+        </ng-container>
+        
+    </mat-dialog-content>
+    
+    <app-button-with-border-bottom 
+        *ngIf="status !== 'sending'" 
+        mat-dialog-close 
+        buttonText="Fechar"
+    ></app-button-with-border-bottom>
+    
+</div>
