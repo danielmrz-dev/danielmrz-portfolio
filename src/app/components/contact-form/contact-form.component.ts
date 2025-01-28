@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { FormBuilder, FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { OnlyLettersDirective } from '../../validators/only-letters.directive';
 import { EmailValidatorDirective } from '../../validators/email-validator.directive';
+import { EmailService } from '../../services/email.service';
 
 @Component({
   selector: 'app-contact-form',
@@ -16,7 +17,8 @@ export class ContactFormComponent implements OnInit {
   contactForm!: FormGroup
   constructor(
     private readonly _fb: FormBuilder, 
-    private readonly _elRef: ElementRef
+    private readonly _elRef: ElementRef,
+    private readonly _emailService: EmailService,
   ) {}
   
   ngOnInit(): void {
@@ -45,6 +47,13 @@ export class ContactFormComponent implements OnInit {
       this.focusOnInvalidFields(form);
       return;
     }
+    this._emailService.sendEmail(form.value)
+      .then((response) => {
+        console.log("Email enviado com sucesso!");
+      })
+      .catch((erro) => {
+        alert('Erro ao enviar seu email!')
+      })
     form.reset();
   }
 
