@@ -14,63 +14,63 @@ export class ProjectsListComponent {
   projectsList: ProjectsList = [
     {
       images: {
-        small: 'thumbnail-project-1-small.webp',
-        large: 'thumbnail-project-1-large.webp',
+        small: 'frontend-quiz.webp',
+        large: 'frontend-quiz.webp',
       },
-      name: 'Design Portfolio',
-      technologies: ['HTML', 'CSS'],
-      liveSite: '',
-      repository: ''
+      name: 'Frontend Quiz',
+      technologies: ['Angular', 'TypeScript', 'TailwindCSS', 'RxJS'],
+      liveSite: 'https://frontend-quiz-one.vercel.app/',
+      repository: 'https://github.com/danielmrz-dev/frontend-quiz'
     },
     {
       images: {
-        small: 'thumbnail-project-2-small.webp',
-        large: 'thumbnail-project-2-large.webp',
+        small: 'rest-countries-api.webp',
+        large: 'rest-countries-api.webp',
       },
-      name: 'E-Learning Landing Page',
-      technologies: ['HTML', 'CSS'],
-      liveSite: '',
-      repository: ''
+      name: 'Rest Countries API',
+      technologies: ['Angular', 'Angular Material', 'TypeScript', 'SASS', 'RxJS'],
+      liveSite: 'https://rest-countries-api-lilac-alpha.vercel.app/',
+      repository: 'https://github.com/danielmrz-dev/rest-countries-api'
     },
     {
       images: {
-        small: 'thumbnail-project-3-small.webp',
-        large: 'thumbnail-project-3-large.webp',
+        small: 'easybank-landing-page.webp',
+        large: 'easybank-landing-page.webp',
       },
-      name: 'Todo Web App',
-      technologies: ['HTML', 'CSS', 'Javascript'],
-      liveSite: '',
-      repository: ''
+      name: 'Easybank Landing Page',
+      technologies: ['Angular', 'SASS', 'TypeScript'],
+      liveSite: 'https://easybank-blond.vercel.app/',
+      repository: 'https://github.com/danielmrz-dev/easybank'
     },
     {
       images: {
-        small: 'thumbnail-project-4-small.webp',
-        large: 'thumbnail-project-4-large.webp',
+        small: 'multi-step-form.webp',
+        large: 'multi-step-form.webp',
       },
-      name: 'Entertainment Web App',
-      technologies: ['HTML', 'CSS', 'Javascript'],
-      liveSite: '',
-      repository: ''
+      name: 'Multi Step Form',
+      technologies: ['Angular', 'SASS', 'TypeScript'],
+      liveSite: 'https://multistep-form-gules.vercel.app/',
+      repository: 'https://github.com/danielmrz-dev/multistep-form'
     },
     {
       images: {
-        small: 'thumbnail-project-5-small.webp',
-        large: 'thumbnail-project-5-large.webp',
+        small: 'github-user-search-app.webp',
+        large: 'github-user-search-app.webp',
       },
-      name: 'Memory Game',
-      technologies: ['HTML', 'CSS', 'Javascript'],
-      liveSite: '',
-      repository: ''
+      name: 'Github User Search App',
+      technologies: ['Angular', 'SASS', 'TypeScript', 'RxJS'],
+      liveSite: 'https://github-user-search-pearl-six.vercel.app/',
+      repository: 'https://github.com/danielmrz-dev/github-user-search'
     },
     {
       images: {
-        small: 'thumbnail-project-6-small.webp',
-        large: 'thumbnail-project-6-large.webp',
+        small: 'conference-ticket-generator.webp',
+        large: 'conference-ticket-generator.webp',
       },
-      name: 'Art Gallery Showcase',
-      technologies: ['HTML', 'CSS', 'Javascript'],
-      liveSite: '',
-      repository: ''
+      name: 'Conference Ticket Generator',
+      technologies: ['Angular', 'SASS', 'TypeScript'],
+      liveSite: 'https://conference-ticket-generator-ashen.vercel.app/',
+      repository: 'https://github.com/danielmrz-dev/conference-ticket-generator'
     },
   ]
   projectHovered: number | null = null

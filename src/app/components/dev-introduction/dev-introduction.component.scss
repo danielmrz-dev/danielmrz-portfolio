@@ -14,6 +14,7 @@ $increment: calc((100vw - 1100px) / 200);
     &__image-container {
         position: relative;
         top: -128px;
+        z-index: -1;
     }
     &__profile-picture-container {
         max-width: 240px;

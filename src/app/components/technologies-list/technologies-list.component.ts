@@ -13,27 +13,27 @@ export class TechnologiesListComponent {
   technologiesList: TechnologiesList = [
     {
       technology: "HTML",
-      xpYears: 4,
-    },
-    {
-      technology: "CSS",
-      xpYears: 4,
-    },
-    {
-      technology: "Javascript",
-      xpYears: 4,
-    },
-    {
-      technology: "Accessibility",
-      xpYears: 4,
-    },
-    {
-      technology: "React",
-      xpYears: 3,
+      xpYears: 2,
     },
     {
       technology: "Sass",
-      xpYears: 3,
+      xpYears: 2,
+    },
+    {
+      technology: "TypeScript",
+      xpYears: 2,
+    },
+    {
+      technology: "Accessibility",
+      xpYears: 2,
+    },
+    {
+      technology: "Angular",
+      xpYears: 2,
+    },
+    {
+      technology: "Node.js",
+      xpYears: 2,
     },
   ]
 }
