@@ -15,7 +15,7 @@ export class EmailService {
         return emailjs.send(this.serviceId, this.templateId, { 
             to_name: "Daniel",
             from_name: formData.name,
-            from_email: formData.email,
+            reply_to: formData.email,
             message: formData.message
         }, this.publicKey)
     }
