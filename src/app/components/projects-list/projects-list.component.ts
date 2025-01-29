@@ -21,7 +21,7 @@ export class ProjectsListComponent {
         large: 'frontend-quiz.webp',
       },
       name: 'Frontend Quiz',
-      technologies: ['Angular', 'TypeScript', 'TailwindCSS', 'RxJS', 'NodeJS'],
+      technologies: ['Angular', 'TypeScript', 'TailwindCSS', 'RxJS'],
       liveSite: 'https://frontend-quiz-one.vercel.app/',
       repository: 'https://github.com/danielmrz-dev/frontend-quiz'
     },
