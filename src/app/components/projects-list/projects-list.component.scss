@@ -42,7 +42,7 @@
     &__project-name-and-stack {
         display: flex;
         flex-direction: column;
-        gap: 0.438rem;
+        gap: .65rem;
     }
     &__project-name {
         font-size: 1.5rem;
@@ -54,11 +54,15 @@
         display: flex;
         align-items: center;
         flex-wrap: wrap;
-        gap: .5rem;
+        gap: 1rem;
     }
     &__project-stack-item {
         font-size: .75rem;
         line-height: 1.75rem;
+        img {
+            width: 30px;
+            height: 30px;
+        }
     }
 }
 

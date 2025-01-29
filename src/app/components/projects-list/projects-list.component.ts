@@ -2,11 +2,14 @@ import { Component } from '@angular/core';
 import { ButtonWithBorderBottomComponent } from "../button-with-border-bottom/button-with-border-bottom.component";
 import { CommonModule } from '@angular/common';
 import { ProjectsList } from '../../models/projects-list.type';
+import { TechnologyIconPipe } from '../../pipes/technology-icon.pipe';
+import { MatTooltipModule } from '@angular/material/tooltip';
+
 
 @Component({
   selector: 'app-projects-list',
   standalone: true,
-  imports: [ButtonWithBorderBottomComponent, CommonModule],
+  imports: [ButtonWithBorderBottomComponent, CommonModule, TechnologyIconPipe, MatTooltipModule],
   templateUrl: './projects-list.component.html',
   styleUrl: './projects-list.component.scss'
 })
@@ -18,7 +21,7 @@ export class ProjectsListComponent {
         large: 'frontend-quiz.webp',
       },
       name: 'Frontend Quiz',
-      technologies: ['Angular', 'TypeScript', 'TailwindCSS', 'RxJS'],
+      technologies: ['Angular', 'TypeScript', 'TailwindCSS', 'RxJS', 'NodeJS'],
       liveSite: 'https://frontend-quiz-one.vercel.app/',
       repository: 'https://github.com/danielmrz-dev/frontend-quiz'
     },
