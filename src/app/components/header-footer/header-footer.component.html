@@ -1,10 +1,22 @@
 <div class="header-footer">
     <span class="header-footer__title">danielmariz</span>
-    <ul class="header-footer__links-list">
-        <li class="header-footer__link-item" *ngFor="let link of socialMediaLinks">
-            <a [href]="link.link" class="header-footer__link" rel="noopener noreferrer" target="_blank" [attr.aria-label]="link.socialMedia" >
-                <img [src]="link.icon" [alt]="link.socialMedia">
-            </a>
-        </li>
-    </ul>
+    
+    <ng-container *ngIf="isFooter; else languageButtons">
+        <ul class="header-footer__links-list">
+            <li class="header-footer__link-item" *ngFor="let link of socialMediaLinks">
+                <a [href]="link.link" class="header-footer__link" rel="noopener noreferrer" target="_blank" [attr.aria-label]="link.socialMedia" >
+                    <img [src]="link.icon" [alt]="link.socialMedia">
+                </a>
+            </li>
+        </ul>
+    </ng-container>
+
+    <ng-template #languageButtons>
+        <div class="header-footer__btns-container">
+            <button matTooltip="Português" class="header-footer__language-btns"></button>
+            <button matTooltip="Español" class="header-footer__language-btns"></button>
+            <button matTooltip="English" class="header-footer__language-btns"></button>
+        </div>
+    </ng-template>
+    
 </div>

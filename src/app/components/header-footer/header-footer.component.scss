@@ -29,6 +29,26 @@
             }
         }
     }
+    &__btns-container {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+    }
+    &__language-btns {
+        border: none;
+        height: 19px;
+        width: 30px;
+        background: transparent url(../../../assets/images/brasil.png) center center no-repeat;
+        background-size: cover;
+        border-radius: 2px;
+        cursor: pointer;
+        &:nth-of-type(2) {
+            background-image: url(../../../assets/images/spain.png);
+        }
+        &:nth-of-type(3) {
+            background-image: url(../../../assets/images/usa.png);
+        }
+    }
 }
 
 @media screen and (min-width: 768px) {
@@ -57,5 +77,8 @@
         max-width: 1062px;
         margin: auto;
         padding: 2.438rem 3rem 1.875rem;
+        &__btns-container {
+            gap: 1rem;
+        }
     }
 }

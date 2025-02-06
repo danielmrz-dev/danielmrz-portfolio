@@ -13,7 +13,7 @@
                 <h5 class="projects__project-name"> {{ project.name }} </h5>
                 <ul class="projects__project-stack-list">
                     <li class="projects__project-stack-item" *ngFor="let technology of project.technologies">
-                        <img [matTooltip]="technology" [src]="technology | lowercase | technologyIcon" alt="">
+                        <img [matTooltip]="technology | uppercase" [src]="technology | lowercase | technologyIcon" alt="">
                     </li>
                 </ul>
             </div>
