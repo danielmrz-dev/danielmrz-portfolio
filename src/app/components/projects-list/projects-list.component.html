@@ -4,7 +4,7 @@
         <app-button-with-border-bottom buttonText="Contact me" targetComponent="contact-form" class="projects__header-btn"></app-button-with-border-bottom>
     </div>
     <ul class="projects__list">
-        <li class="projects__project" *ngFor="let project of projectsList; let i = index">
+        <li class="projects__project" *ngFor="let project of (projectsList$ | async); let i = index">
             <picture class="projects__project-image">
                 <source [srcset]="project.images.large" media="(min-width: 600px)" type="image/webp">
                 <img [src]="project.images.small" alt="">
