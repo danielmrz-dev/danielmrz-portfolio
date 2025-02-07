@@ -1,4 +1,4 @@
-import { Component, ElementRef, OnInit } from '@angular/core';
+import { Component, ElementRef, inject, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormBuilder, FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { OnlyLettersDirective } from '../../validators/only-letters.directive';
@@ -6,6 +6,9 @@ import { EmailValidatorDirective } from '../../validators/email-validator.direct
 import { EmailService } from '../../services/email.service';
 import { MatDialog } from '@angular/material/dialog';
 import { ModalEmailSentComponent } from '../modal-email-sent/modal-email-sent.component';
+import { Language } from '../../models/language.type';
+import { TranslationsService } from '../../services/translations.service';
+import { TranslatedTexts } from '../../models/translation-texts.interface';
 
 @Component({
   selector: 'app-contact-form',
@@ -16,13 +19,13 @@ import { ModalEmailSentComponent } from '../modal-email-sent/modal-email-sent.co
 })
 export class ContactFormComponent implements OnInit {
 
-  contactForm!: FormGroup
-  constructor(
-    private readonly _fb: FormBuilder, 
-    private readonly _elRef: ElementRef,
-    private readonly _emailService: EmailService,
-    readonly dialog: MatDialog
-  ) {}
+  currentLanguage: Language = 'en';
+  contactForm!: FormGroup;
+  private readonly _fb = inject(FormBuilder);
+  private readonly _elRef = inject(ElementRef);
+  private readonly _emailService = inject(EmailService);
+  private readonly _translationsService = inject(TranslationsService);
+  readonly dialog = inject(MatDialog);
   
   ngOnInit(): void {
     this.contactForm = this._fb.group({
@@ -30,7 +33,9 @@ export class ContactFormComponent implements OnInit {
       email: ['', [Validators.required]],
       message: ['', [Validators.required]],
     })    
-    
+    this._translationsService.currentLanguage$.subscribe((lang) => {
+      this.currentLanguage = lang;
+    })
   }
 
   get name(): FormControl {
@@ -45,13 +50,41 @@ export class ContactFormComponent implements OnInit {
     return this.contactForm.get('message') as FormControl;
   }
 
+  getTexts(lang: Language, type: string): string {
+    const texts: TranslatedTexts = {
+      en: {
+        title: "Contact",
+        description: "I would love to hear from you. Please fill in the form, and I’ll get back to you as soon as possible.",
+        errorName: "Your name is required",
+        errorEmail: "Your email address is required",
+        invalidEmail: "Sorry, invalid format here",
+        errorMessage: "Your message is required",
+        button: "Send Message"
+      },
+      es: {
+        title: "Contacto",
+        description: "Estaré encantado de recibir tu mensaje. Completa el formulario y me pondré en contacto contigo a la brevedad.",
+        errorName: "El nombre es obligatorio",
+        errorEmail: "Es necesario ingresar el correo electrónico",
+        invalidEmail: "Formato inválido",
+        errorMessage: "Es necesario escribir un mensaje",
+        button: "Enviar mensaje"
+      },
+      pt: {
+        title: "Contato",
+        description: "Ficarei feliz em receber sua mensagem. Preencha o formulário abaixo e entrarei em contato o mais rápido possível.",
+        errorName: "O nome é obrigatório",
+        errorEmail: "É necessário informar seu e-mail",
+        invalidEmail: "Formato inválido",
+        errorMessage: "Você precisa escrever uma mensagem",
+        button: "Enviar mensagem"
+      }
+    }
+
+    return texts[lang][type];
+  }
+
   onSubmit(form: FormGroup) {
-    // this.dialog.open(ModalEmailSentComponent, {
-    //   data: {
-    //     name: this.name.value,
-    //     status: 'error'
-    //   },
-    // })
     if (form.invalid) {
       form.markAllAsTouched()
       this.focusOnInvalidFields(form);
