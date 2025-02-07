@@ -11,7 +11,7 @@ export class ButtonWithBorderBottomComponent {
   @Input({ required: true }) buttonText: string = '';
   @Input() targetComponent: string = '';
   @Input() link: string | null = null;
-  
+
   scrollToTarget(evento: Event) {
     if (!this.link) {
       evento.preventDefault();

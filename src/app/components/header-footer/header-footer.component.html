@@ -13,9 +13,9 @@
 
     <ng-template #languageButtons>
         <div class="header-footer__btns-container">
-            <button matTooltip="Português" class="header-footer__language-btns"></button>
-            <button matTooltip="Español" class="header-footer__language-btns"></button>
-            <button matTooltip="English" class="header-footer__language-btns"></button>
+            <button matTooltip="Português" class="header-footer__language-btns" (click)="changeLanguage('pt')"></button>
+            <button matTooltip="Español" class="header-footer__language-btns" (click)="changeLanguage('es')"></button>
+            <button matTooltip="English" class="header-footer__language-btns" (click)="changeLanguage('en')"></button>
         </div>
     </ng-template>
     

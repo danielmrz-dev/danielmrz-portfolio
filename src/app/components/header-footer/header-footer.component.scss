@@ -36,17 +36,20 @@
     }
     &__language-btns {
         border: none;
-        height: 19px;
-        width: 30px;
+        height: 30px;
+        width: 41px;
         background: transparent url(../../../assets/images/brasil.png) center center no-repeat;
-        background-size: cover;
+        background-size: contain;
         border-radius: 2px;
         cursor: pointer;
+        &:hover {
+            background-color: #ffffff30;
+        }
         &:nth-of-type(2) {
             background-image: url(../../../assets/images/spain.png);
         }
         &:nth-of-type(3) {
-            background-image: url(../../../assets/images/usa.png);
+            background-image: url(../../../assets/images/uk.png);
         }
     }
 }
@@ -78,7 +81,7 @@
         margin: auto;
         padding: 2.438rem 3rem 1.875rem;
         &__btns-container {
-            gap: 1rem;
+            gap: .5rem;
         }
     }
 }

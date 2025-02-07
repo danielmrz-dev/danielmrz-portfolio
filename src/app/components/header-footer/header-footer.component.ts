@@ -1,7 +1,10 @@
-import { Component, ElementRef, HostBinding, OnInit } from '@angular/core';
+import { Component, ElementRef, HostBinding, inject, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ISocialMediaLink } from '../../models/social-media-link.interface';
 import { MatTooltipModule } from '@angular/material/tooltip';
+import { Language } from '../../models/language.type';
+import { TranslationsService } from '../../services/translations.service';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-header, app-footer',
@@ -34,18 +37,26 @@ export class HeaderFooterComponent implements OnInit {
     },
   ];
 
+  languageSubscription!: Subscription
+
   @HostBinding('class.is-header') isHeader = false;
   @HostBinding('class.is-footer') isFooter = false;
 
-  constructor(private el: ElementRef) {}
+  private readonly _el = inject(ElementRef);
+  private readonly _languagesService = inject(TranslationsService);
 
   ngOnInit() {
-    const tagName = this.el.nativeElement.tagName.toLowerCase();
-
+    const tagName = this._el.nativeElement.tagName.toLowerCase();
     if (tagName === 'app-header') {
       this.isHeader = true;
     } else if (tagName === 'app-footer') {
       this.isFooter = true;
     }
+    this.languageSubscription = this._languagesService.currentLanguage$.subscribe(() => { });
+  }
+
+  changeLanguage(lang: Language) {
+    this._languagesService.changeLanguage(lang)
+    this.languageSubscription.unsubscribe();
   }
 }

@@ -10,11 +10,39 @@
     </div>
     <div class="introduction__text">
         <h1 class="introduction__title">
-            <span class="nice-to">Nice to</span> meet you! I'm <span class="introduction__name">Daniel Mariz</span>.
+            <ng-container *ngIf="(_translationsService.currentLanguage$ | async) === 'en'">
+                <span class="nice-to">Nice to</span> meet you! I'm <span class="introduction__name">Daniel Mariz</span>.
+            </ng-container>
+    
+            <ng-container *ngIf="(_translationsService.currentLanguage$ | async) === 'pt'">
+                <span class="nice-to" >Muito</span> prazer! Sou <span class="introduction__name">Daniel Mariz</span>.
+            </ng-container>
+            
+            <ng-container *ngIf="(_translationsService.currentLanguage$ | async) === 'es'">
+                <span class="nice-to">Mucho</span> gusto! Soy <span class="introduction__name">Daniel Mariz</span>.
+            </ng-container>            
         </h1>
         <p class="introduction__description">
-            Based in the Brazil, I’m a front-end developer passionate about building accessible web apps that users love.
+            <span *ngIf="(_translationsService.currentLanguage$ | async) === 'en'">
+                Based in the Brazil, I’m a front-end developer passionate about building accessible web apps that users love.                
+            </span>
+            <span *ngIf="(_translationsService.currentLanguage$ | async) === 'pt'">
+                Sou um Desenvolvedor Front-end apaixonado por criar aplicativos web acessíveis e que encantam os usuários.
+            </span>
+            <span *ngIf="(_translationsService.currentLanguage$ | async) === 'es'">
+                Soy desarrollador front-end en Brasil, dedicado a construir aplicaciones web accesibles que los usuarios aprecian.
+            </span>
         </p>
-        <app-button-with-border-bottom class="btn" buttonText="Contact me" targetComponent="contact-form"></app-button-with-border-bottom>
+        <ng-container *ngIf="(_translationsService.currentLanguage$ | async) === 'en'">
+            <app-button-with-border-bottom class="btn" buttonText="Contact me" targetComponent="contact-form"></app-button-with-border-bottom>
+        </ng-container>
+        <ng-container *ngIf="(_translationsService.currentLanguage$ | async) === 'pt'">
+            <app-button-with-border-bottom class="btn" buttonText="Entre em Contato" targetComponent="contact-form"></app-button-with-border-bottom>
+        </ng-container>
+        <ng-container *ngIf="(_translationsService.currentLanguage$ | async) === 'es'">
+            <app-button-with-border-bottom class="btn" buttonText="Contáctame" targetComponent="contact-form"></app-button-with-border-bottom>
+
+        </ng-container>
+        
     </div>
 </section>

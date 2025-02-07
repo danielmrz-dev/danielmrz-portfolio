@@ -2,35 +2,74 @@
     <mat-dialog-content>
 
         <ng-container *ngIf="status === 'sending'">
-            <p> Enviando... </p>
+            <p *ngIf="(_translationsService.currentLanguage$| async) === 'pt' || 
+                    (_translationsService.currentLanguage$| async) === 'es'"> Enviando... </p>
+            <p *ngIf="(_translationsService.currentLanguage$| async) === 'en'"> Sending... </p>
             <mat-spinner color="primary" diameter="50" strokeWidth="4"></mat-spinner>
         </ng-container>
 
         <ng-container *ngIf="status === 'success'">
             <div class="message-success">
                 <img src="circle-check-solid.svg" alt="" class="icon-check">
-                <span>
-                    Olá,
-                    <span> {{ data.name| uppercase }}!</span>                
-                </span>
-                <p>
+                <ng-container *ngIf="(_translationsService.currentLanguage$| async) === 'pt'">
+                    <span> Olá, <span> {{ data.name | uppercase }}!</span> </span>
+                </ng-container>
+
+                <ng-container *ngIf="(_translationsService.currentLanguage$| async) === 'en'">
+                    <span> Hello, <span> {{ data.name | uppercase }}!</span> </span>
+                </ng-container>
+
+                <ng-container *ngIf="(_translationsService.currentLanguage$| async) === 'es'">
+                    <span> Hola, <span> {{ data.name | uppercase }}!</span> </span>
+                </ng-container>
+                
+                <p *ngIf="(_translationsService.currentLanguage$| async) === 'pt'">
                     Sua mensagem foi enviada!
                     <br>
                     Retornarei seu contato em breve!
+                </p>
+                <p *ngIf="(_translationsService.currentLanguage$| async) === 'en'">
+                    Your message has been sent!
+                    <br>
+                    I will get back to you shortly!
+                </p>
+                <p *ngIf="(_translationsService.currentLanguage$| async) === 'es'">
+                    ¡Tu mensaje ha sido enviado!
+                    <br>
+                    Te contactaré pronto.
                 </p>
             </div>
         </ng-container>
 
         <ng-container *ngIf="status === 'error'">
-            <p>Sinto muito! Não foi possível enviar a sua mensagem!</p>
+            <p *ngIf="(_translationsService.currentLanguage$| async) === 'pt'">Sinto muito! Não foi possível enviar a sua mensagem!</p>
+            <p *ngIf="(_translationsService.currentLanguage$| async) === 'en'">Sorry! We were unable to send your message!</p>
+            <p *ngIf="(_translationsService.currentLanguage$| async) === 'es'">¡Lo siento! No pudimos enviar tu mensaje.</p>
         </ng-container>
         
     </mat-dialog-content>
     
-    <app-button-with-border-bottom 
-        *ngIf="status !== 'sending'" 
-        mat-dialog-close 
-        buttonText="Fechar"
-    ></app-button-with-border-bottom>
-    
+    <ng-container *ngIf="(_translationsService.currentLanguage$| async) === 'pt'">
+        <app-button-with-border-bottom 
+            *ngIf="status !== 'sending'" 
+            mat-dialog-close 
+            buttonText="Fechar"
+        ></app-button-with-border-bottom>
+    </ng-container>
+
+    <ng-container *ngIf="(_translationsService.currentLanguage$| async) === 'en'">
+        <app-button-with-border-bottom 
+            *ngIf="status !== 'sending'" 
+            mat-dialog-close 
+            buttonText="Close"
+        ></app-button-with-border-bottom>
+    </ng-container>
+
+    <ng-container *ngIf="(_translationsService.currentLanguage$| async) === 'es'">
+        <app-button-with-border-bottom 
+            *ngIf="status !== 'sending'" 
+            mat-dialog-close 
+            buttonText="Cerrar"
+        ></app-button-with-border-bottom>
+    </ng-container>
 </div>
