@@ -55,6 +55,9 @@ export class ContactFormComponent implements OnInit {
       en: {
         title: "Contact",
         description: "I would love to hear from you. Please fill in the form, and I’ll get back to you as soon as possible.",
+        namePlaceholder: "NAME",
+        emailPlaceholder: "EMAIL",
+        messagePlaceholder: "MESSAGE",
         errorName: "Your name is required",
         errorEmail: "Your email address is required",
         invalidEmail: "Sorry, invalid format here",
@@ -64,6 +67,9 @@ export class ContactFormComponent implements OnInit {
       es: {
         title: "Contacto",
         description: "Estaré encantado de recibir tu mensaje. Completa el formulario y me pondré en contacto contigo a la brevedad.",
+        namePlaceholder: "NOMBRE",
+        emailPlaceholder: "EMAIL",
+        messagePlaceholder: "MENSAJE",
         errorName: "El nombre es obligatorio",
         errorEmail: "Es necesario ingresar el correo electrónico",
         invalidEmail: "Formato inválido",
@@ -73,6 +79,9 @@ export class ContactFormComponent implements OnInit {
       pt: {
         title: "Contato",
         description: "Ficarei feliz em receber sua mensagem. Preencha o formulário abaixo e entrarei em contato o mais rápido possível.",
+        namePlaceholder: "NOME",
+        emailPlaceholder: "EMAIL",
+        messagePlaceholder: "MENSAGEM",
         errorName: "O nome é obrigatório",
         errorEmail: "É necessário informar seu e-mail",
         invalidEmail: "Formato inválido",

@@ -2,6 +2,7 @@ import { Component, ElementRef, HostBinding, inject, OnInit } from '@angular/cor
 import { CommonModule } from '@angular/common';
 import { ISocialMediaLink } from '../../models/social-media-link.interface';
 import { MatTooltipModule } from '@angular/material/tooltip';
+import { MatMenuModule } from '@angular/material/menu';
 import { Language } from '../../models/language.type';
 import { TranslationsService } from '../../services/translations.service';
 import { Subscription } from 'rxjs';
@@ -9,7 +10,7 @@ import { Subscription } from 'rxjs';
 @Component({
   selector: 'app-header, app-footer',
   standalone: true,
-  imports: [CommonModule, MatTooltipModule],
+  imports: [CommonModule, MatTooltipModule, MatMenuModule],
   templateUrl: './header-footer.component.html',
   styleUrl: './header-footer.component.scss'
 })

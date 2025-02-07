@@ -1,4 +1,5 @@
 @use '@angular/material' as mat;
+@use './variables' as var;
 
 $primary-palette: mat.define-palette((
     500: #4EE1A0,
@@ -26,3 +27,49 @@ $theme: mat.define-light-theme((
 
 @include mat.core();
 @include mat.all-component-themes($theme);
+
+.mat-mdc-menu-content {
+    padding: 0 !important;
+    border-radius: 5px;
+    background: var.$Dark-Grey;
+}
+
+.mat-mdc-menu-content.mat-menu-item.cdk-keyboard-focused {
+    background: var.$Green-Opaque !important;
+}
+
+.mat-mdc-menu-panel {
+    margin: .5rem !important;
+    border-radius: 5px;
+    background: var.$Dark-Grey !important;
+}
+
+.mat-mdc-menu-item-text {
+    padding: .5rem 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.5rem;
+    color: var.$White;
+    font-family: var.$Space-Grotesk !important;
+    font-weight: bold !important;
+    font-size: 0.85rem !important;
+    img {
+        height: 30px;
+        width: 30px;            
+    }
+    &:hover {
+        background-color: var.$Green-Opaque;
+    }
+    &:focus {
+        background-color: var.$Green-Opaque;
+    }
+}
+
+.mat-mdc-focus-indicator {
+    padding: 0 !important;
+}
+
+.cdk-keyboard-focused{
+  background-color: var.$Green-Opaque !important; // Cor desejada
+}

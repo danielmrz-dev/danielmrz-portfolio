@@ -13,6 +13,19 @@
         line-height: 2rem;
         font-weight: bold;
     }
+    &__languages-menu {
+        background-color: transparent;
+        border: none;
+        cursor: pointer;
+        img {
+            width: 28px;
+            height: 28px;
+        }
+    }
+    &__mat-menu {
+        background-color: yellow !important;
+        padding: 1rem;
+    }
     &__links-list {
         display: flex;
         justify-content: center;
@@ -31,26 +44,9 @@
     }
     &__btns-container {
         display: flex;
+        flex-direction: column;
         align-items: center;
-        gap: 0.5rem;
-    }
-    &__language-btns {
-        border: none;
-        height: 30px;
-        width: 41px;
-        background: transparent url(../../../assets/images/brasil.png) center center no-repeat;
-        background-size: contain;
-        border-radius: 2px;
-        cursor: pointer;
-        &:hover {
-            background-color: #ffffff30;
-        }
-        &:nth-of-type(2) {
-            background-image: url(../../../assets/images/spain.png);
-        }
-        &:nth-of-type(3) {
-            background-image: url(../../../assets/images/uk.png);
-        }
+        color: var.$White;
     }
 }
 

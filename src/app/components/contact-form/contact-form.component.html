@@ -5,7 +5,7 @@
     </div>
     <div class="contact-form__inputs">
         <div class="contact-form__input-container">
-            <input class="contact-form__input" type="text" placeholder="NAME" formControlName="name" appOnlyLetters [ngClass]="{'error-border': name.touched && name.hasError('required')}">
+            <input class="contact-form__input" type="text" [placeholder]="getTexts(currentLanguage, 'namePlaceholder')" formControlName="name" appOnlyLetters [ngClass]="{'error-border': name.touched && name.hasError('required')}">
             <ng-container *ngIf="name.touched && name.hasError('required')">
                 <span class="contact-form__error-msg" >{{ getTexts(currentLanguage, 'errorName') }}</span>
                 <span class="contact-form__error-icon">
@@ -17,7 +17,7 @@
             <input 
                 class="contact-form__input"
                 type="email" 
-                placeholder="EMAIL" 
+                [placeholder]="getTexts(currentLanguage, 'emailPlaceholder')" 
                 [ngClass]="
                     {'error-border': 
                         (email.touched && email.hasError('required')) || 
@@ -40,7 +40,7 @@
             
         </div>
         <div class="contact-form__input-container">
-            <textarea rows="4" class="contact-form__input" placeholder="MESSAGE" [ngClass]="{'error-border': message.touched && message.hasError('required')}" formControlName="message"></textarea>
+            <textarea rows="4" class="contact-form__input" [placeholder]="getTexts(currentLanguage, 'messagePlaceholder')" [ngClass]="{'error-border': message.touched && message.hasError('required')}" formControlName="message"></textarea>
             <ng-container *ngIf="message.touched && message.hasError('required')">
                 <span class="contact-form__error-msg">{{ getTexts(currentLanguage, 'errorMessage') }}</span>
                 <span class="contact-form__error-icon">

@@ -32,7 +32,7 @@ export class ProjectsListComponent {
   
 
   ngOnInit(): void {
-    // this.projectsList$ = this._projectsService.getProjects();
+    this.projectsList$ = this._projectsService.getProjects();
     this._translationsService.currentLanguage$.subscribe((lang) => {
       this.currentLanguage = lang;
     })

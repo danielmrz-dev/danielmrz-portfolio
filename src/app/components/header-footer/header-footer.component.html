@@ -2,6 +2,7 @@
     <span class="header-footer__title">danielmariz</span>
     
     <ng-container *ngIf="isFooter; else languageButtons">
+        
         <ul class="header-footer__links-list">
             <li class="header-footer__link-item" *ngFor="let link of socialMediaLinks">
                 <a [href]="link.link" class="header-footer__link" rel="noopener noreferrer" target="_blank" [attr.aria-label]="link.socialMedia" >
@@ -12,11 +13,26 @@
     </ng-container>
 
     <ng-template #languageButtons>
-        <div class="header-footer__btns-container">
-            <button matTooltip="Português" class="header-footer__language-btns" (click)="changeLanguage('pt')"></button>
-            <button matTooltip="Español" class="header-footer__language-btns" (click)="changeLanguage('es')"></button>
-            <button matTooltip="English" class="header-footer__language-btns" (click)="changeLanguage('en')"></button>
-        </div>
+        <button class="header-footer__languages-menu" [matMenuTriggerFor]="menu">
+            <img src="earth.svg" alt="">
+        </button>
+        <mat-menu #menu xPosition="before" class="header-footer__mat-menu">
+            <div class="header-footer__btns-container">
+                
+                <button mat-menu-item class="header-footer__language-btns" (click)="changeLanguage('pt')">
+                    Português
+                    <img src="brasil.png" alt="">
+                </button>
+                <button mat-menu-item class="header-footer__language-btns" (click)="changeLanguage('es')">
+                    Español
+                    <img src="spain.png" alt="">
+                </button>
+                <button mat-menu-item class="header-footer__language-btns" (click)="changeLanguage('en')">
+                    English
+                    <img src="uk.png" alt="">
+                </button>
+            </div>
+        </mat-menu>
     </ng-template>
     
 </div>
