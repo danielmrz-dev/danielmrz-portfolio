@@ -1,8 +1,11 @@
 <section class="projects">
     <div class="projects__header">
-        <h4 class="projects__title">Projects</h4>
-        <app-button-with-border-bottom buttonText="Contact me" targetComponent="contact-form" class="projects__header-btn"></app-button-with-border-bottom>
+        <h4 class="projects__title">{{ getTexts(currentLanguage, 'title') }}</h4>
+        <app-button-with-border-bottom [buttonText]="getTexts(currentLanguage, 'contactButton')" targetComponent="contact-form" class="projects__header-btn"></app-button-with-border-bottom>
     </div>
+
+    <app-loading-spinner [projectsList]="projectsList$ | async"></app-loading-spinner>
+    
     <ul class="projects__list">
         <li class="projects__project" *ngFor="let project of (projectsList$ | async); let i = index">
             <picture class="projects__project-image">
@@ -18,8 +21,8 @@
                 </ul>
             </div>
             <div class="projects__project-actions-btns" [ngClass]="{ 'hover': projectHovered === i }" (mouseenter)="onMouseEnter(i)" (mouseleave)="onMouseLeave()">
-                <app-button-with-border-bottom buttonText="View Project" [link]="project.liveSite" targetComponent="" class="projects__header-btn"></app-button-with-border-bottom>
-                <app-button-with-border-bottom buttonText="View Code" [link]="project.repository" targetComponent="" class="projects__header-btn"></app-button-with-border-bottom>
+                <app-button-with-border-bottom [buttonText]="getTexts(currentLanguage, 'seeProjectButton')" [link]="project.liveSite" targetComponent="" class="projects__header-btn"></app-button-with-border-bottom>
+                <app-button-with-border-bottom [buttonText]="getTexts(currentLanguage, 'seeCodeButton')" [link]="project.repository" targetComponent="" class="projects__header-btn"></app-button-with-border-bottom>
             </div>
         </li>
     </ul>

@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core';
+import { SafeHtml } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-button-with-border-bottom',
@@ -8,7 +9,7 @@ import { Component, Input } from '@angular/core';
   styleUrl: './button-with-border-bottom.component.scss'
 })
 export class ButtonWithBorderBottomComponent {
-  @Input({ required: true }) buttonText: string = '';
+  @Input({ required: true }) buttonText: string | SafeHtml = '';
   @Input() targetComponent: string = '';
   @Input() link: string | null = null;
 

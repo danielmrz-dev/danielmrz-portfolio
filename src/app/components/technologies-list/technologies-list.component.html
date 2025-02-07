@@ -5,7 +5,7 @@
     <ul class="technologies__list">
         <li class="technologies__list-item" *ngFor="let technology of technologiesList">
             <h3 class="technologies__item-title">{{ technology.technology }}</h3>
-            <p class="technologies__item-description">{{ technology.xpYears }} Years Experience</p>
+            <p class="technologies__item-description">{{ technology.xpYears }} {{ getTexts(currentLanguage) }}</p>
         </li>
     </ul>
 

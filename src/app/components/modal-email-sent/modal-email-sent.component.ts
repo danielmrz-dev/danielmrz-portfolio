@@ -1,6 +1,5 @@
 import { Component, inject, Inject } from '@angular/core';
 import { MAT_DIALOG_DATA, MatDialogClose, MatDialogContent } from '@angular/material/dialog';
-import { MatButton } from '@angular/material/button';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
 import { IFormData } from '../../models/form-data.interface';
@@ -11,7 +10,7 @@ import { TranslationsService } from '../../services/translations.service';
 @Component({
   selector: 'app-modal-email-sent',
   standalone: true,
-  imports: [MatDialogContent, CommonModule, MatButton, MatDialogClose, MatProgressSpinnerModule, ButtonWithBorderBottomComponent],
+  imports: [MatDialogContent, CommonModule, MatDialogClose, MatProgressSpinnerModule, ButtonWithBorderBottomComponent],
   templateUrl: './modal-email-sent.component.html',
   styleUrl: './modal-email-sent.component.scss',
 })

@@ -1,6 +1,8 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { TechnologiesList } from '../../models/technologies-list.type';
+import { TranslationsService } from '../../services/translations.service';
+import { Language } from '../../models/language.type';
 
 @Component({
   selector: 'app-technologies-list',
@@ -13,7 +15,7 @@ export class TechnologiesListComponent {
   technologiesList: TechnologiesList = [
     {
       technology: "HTML",
-      xpYears: 2,
+      xpYears: 3,
     },
     {
       technology: "Sass",
@@ -36,4 +38,23 @@ export class TechnologiesListComponent {
       xpYears: 2,
     },
   ]
+
+  currentLanguage: Language = 'en';
+  private readonly _translationsService = inject(TranslationsService);
+
+  ngOnInit(): void {
+    this._translationsService.currentLanguage$.subscribe((lang) => {
+      this.currentLanguage = lang;
+    })
+  }
+
+  getTexts(lang: Language): string {
+    const text: { [key in Language]: string } = {
+      'pt': 'anos de experiência',
+      'es': 'años de experiencia',
+      'en': 'years experience',
+    }
+
+    return text[lang]
+  }
 }

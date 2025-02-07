@@ -1,0 +1,13 @@
+<div class="spinner" *ngIf="!(projectsList)?.length">
+    <ngx-spinner
+        bdColor="transparent"
+        size="medium"
+        color="#fff"
+        type="ball-scale-pulse"
+        [fullScreen]="false"
+    >
+    </ngx-spinner>
+    <p> 
+        {{ getTexts(currentLanguage) }}
+    </p>
+</div>

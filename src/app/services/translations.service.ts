@@ -7,8 +7,9 @@ import { Language } from '../models/language.type';
 })
 export class TranslationsService {
 
-  private language = new BehaviorSubject<string>('en');
+  private language = new BehaviorSubject<Language>('en');
   currentLanguage$ = this.language.asObservable();
+
   changeLanguage(lang: Language) {
     this.language.next(lang);
   }
