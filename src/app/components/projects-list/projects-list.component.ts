@@ -50,7 +50,7 @@ export class ProjectsListComponent {
     const texts: TranslatedTexts = {
       pt: {
         title: "Projetos",
-        contactButton: "Entre em contato",
+        contactButton: "Contato",
         seeProjectButton: "Ver Projeto",
         seeCodeButton: "Ver Código",
       },
