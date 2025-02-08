@@ -32,7 +32,7 @@ export class DevIntroductionComponent {
       pt: {
         introduction: `<span class="nice-to">Muito</span> prazer! Sou <span class="introduction__name">Daniel Mariz</span>.`,
         description: "Sou um Desenvolvedor Front-end apaixonado por criar aplicativos web acessíveis e que encantam os usuários.",
-        button: "Entre em contato"
+        button: "Contato"
       },
       en: {
         introduction: `<span class="nice-to">Nice to</span> meet you! I'm <span class="introduction__name">Daniel Mariz</span>.`,
