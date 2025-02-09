@@ -14,23 +14,23 @@ import { Language } from '../../models/language.type';
 export class TechnologiesListComponent {
   technologiesList: TechnologiesList = [
     {
-      technology: "HTML",
-      xpYears: 3,
+      technology: "Angular",
+      xpYears: 2,
+    },
+    {
+      technology: "Typescript",
+      xpYears: 2,
     },
     {
       technology: "Sass",
       xpYears: 2,
     },
     {
-      technology: "TypeScript",
+      technology: "Tailwind",
       xpYears: 2,
     },
     {
       technology: "Accessibility",
-      xpYears: 2,
-    },
-    {
-      technology: "Angular",
       xpYears: 2,
     },
     {
