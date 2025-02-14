@@ -8,4 +8,5 @@ export enum TechnologiesNames {
     SASS = 'sass',
     NODEJS = 'nodejs',
     EXPRESS = 'express',
+    JWT = 'jwt',
 }
