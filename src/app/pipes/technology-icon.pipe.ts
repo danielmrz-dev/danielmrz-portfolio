@@ -18,6 +18,7 @@ export class TechnologyIconPipe implements PipeTransform {
       [TechnologiesNames.RXJS]: 'rxjs-original.svg',
       [TechnologiesNames.SASS]: 'sass-original.svg',
       [TechnologiesNames.NODEJS]: 'nodejs-original.svg',
+      [TechnologiesNames.EXPRESS]: 'express.svg',
     }
     
     return icons[technology as TechnologiesNames];

@@ -7,4 +7,5 @@ export enum TechnologiesNames {
     RXJS = 'rxjs',
     SASS = 'sass',
     NODEJS = 'nodejs',
+    EXPRESS = 'express',
 }
