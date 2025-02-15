@@ -11,8 +11,6 @@ import { Language } from '../../models/language.type';
 import { TranslationsService } from '../../services/translations.service';
 import { TranslatedTexts } from '../../models/translation-texts.interface';
 
-
-
 @Component({
   selector: 'app-projects-list',
   standalone: true,
