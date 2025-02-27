@@ -8,9 +8,10 @@ import { Observable } from 'rxjs';
 })
 export class ProjectsService {
 
+  private readonly api: string = "https://danielmrz-portfolio-backend-production.up.railway.app/projetos"
   private readonly _http = inject(HttpClient)
 
   getProjects(): Observable<ProjectsList> {
-    return this._http.get<ProjectsList>('https://projects-6nc6.onrender.com/projetos');
+    return this._http.get<ProjectsList>(this.api);
   }
 }
