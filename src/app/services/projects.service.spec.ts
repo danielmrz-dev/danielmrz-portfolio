@@ -28,6 +28,12 @@ describe(ProjectsService.name, () => {
             expect(true).toBeTruthy();
         });
     });
+
+    describe(`Properties`, () => {
+        it('should initialize with first value', () => {
+            expect(service.api).toBe('https://danielmrz-portfolio-backend-production.up.railway.app/projetos');
+        });
+    });
     
 
 });
