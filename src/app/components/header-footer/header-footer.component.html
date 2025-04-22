@@ -13,21 +13,21 @@
     </ng-container>
 
     <ng-template #languageButtons>
-        <button class="header-footer__languages-menu" [matMenuTriggerFor]="menu">
+        <button data-testId="menu-btn" class="header-footer__languages-menu" [matMenuTriggerFor]="menu">
             <img src="earth.svg" alt="">
         </button>
         <mat-menu #menu xPosition="before" class="header-footer__mat-menu">
             <div class="header-footer__btns-container">
                 
-                <button mat-menu-item class="header-footer__language-btns" (click)="changeLanguage('pt')">
+                <button data-testId="pt" mat-menu-item class="header-footer__language-btns" (click)="changeLanguage('pt')">
                     Português
                     <img src="brasil.png" alt="">
                 </button>
-                <button mat-menu-item class="header-footer__language-btns" (click)="changeLanguage('es')">
+                <button data-testId="es" mat-menu-item class="header-footer__language-btns" (click)="changeLanguage('es')">
                     Español
                     <img src="spain.png" alt="">
                 </button>
-                <button mat-menu-item class="header-footer__language-btns" (click)="changeLanguage('en')">
+                <button data-testId="en" mat-menu-item class="header-footer__language-btns" (click)="changeLanguage('en')">
                     English
                     <img src="uk.png" alt="">
                 </button>
