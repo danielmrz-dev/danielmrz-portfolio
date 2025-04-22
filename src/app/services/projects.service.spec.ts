@@ -2,27 +2,7 @@ import { TestBed } from "@angular/core/testing";
 import { ProjectsService } from "./projects.service";
 import { HttpErrorResponse, provideHttpClient } from "@angular/common/http";
 import { HttpTestingController, provideHttpClientTesting } from "@angular/common/http/testing";
-import { ProjectsList } from "../models/projects-list.type";
-
-const mockProjetos: ProjectsList = [
-    {
-        images: {
-            small: "https://res.cloudinary.com/dz209s6jk/image/upload/f_auto,q_auto,w_700/Challenges/blitjo9cbnmtbaybeiys.jpg",
-            large: "https://res.cloudinary.com/dz209s6jk/image/upload/f_auto,q_auto,w_700/Challenges/blitjo9cbnmtbaybeiys.jpg"
-        },
-        name: "Designo Multi-Page Website",
-        technologies: [
-            "angular",
-            "angular material",
-            "sass",
-            "typescript",
-            "rxjs"
-        ],
-        repository: "https://github.com/danielmrz-dev/designo-website",
-        liveSite: "https://designo-website-jet.vercel.app"
-    },
-]
-const apiLink = "https://danielmrz-portfolio-backend-production.up.railway.app/projetos";
+import { apiLink, mockProjetos } from "../tests/mocks/mocks";
 
 describe(ProjectsService.name, () => {
 
@@ -84,7 +64,6 @@ describe(ProjectsService.name, () => {
                     expect(error.status).toBe(422);
                 }
             })
-
             const req = httpController.expectOne(apiLink);
             req.flush("Erro", { status: 422, statusText: "Erro simulado" });
         });
