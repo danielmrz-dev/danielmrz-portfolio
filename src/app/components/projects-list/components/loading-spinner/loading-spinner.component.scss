@@ -4,16 +4,34 @@
     display: flex;
     align-items: flex-end;
     justify-content: center;
-    p {
+    &-text {
         display: block;
         transform: translateY(4rem);
         text-align: center;
+    }
+    &-alt-text {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 1rem;
+        a {
+            color: white;
+            font-weight: bold;
+            font-size: 20px;
+            text-decoration: none;
+            transition: border .3s ease;
+            border-bottom: 2px solid transparent;
+            &:hover {
+                border-color: #fff;
+            }
+        }
     }
 }
 
 @media screen and (min-width: 768px) {
     .spinner {
-        p {
+        &-text {
             transform: translateY(2rem);
         }
     }

@@ -1,5 +1,5 @@
 <div class="spinner" *ngIf="!(projectsList)?.length">
-    <ngx-spinner
+    <!-- <ngx-spinner
         bdColor="transparent"
         size="medium"
         color="#fff"
@@ -7,7 +7,19 @@
         [fullScreen]="false"
     >
     </ngx-spinner>
-    <p> 
+    <p class="spinner-text"> 
         {{ getTexts(currentLanguage) }}
-    </p>
+    </p> -->
+
+    <div class="spinner-alt-text">
+        <p class="spinner-alt-text__content">
+            {{ getMaintenanceTexts(currentLanguage) }}
+        </p>
+        <a 
+            class="spinner-alt-text__link" 
+            href="https://www.frontendmentor.io/profile/danielmrz-dev/solutions" 
+            target="_blank">
+            {{ getLinkText(currentLanguage) }}
+        </a>
+    </div>
 </div>
