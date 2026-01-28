@@ -9,7 +9,7 @@ export class TechnologyIconPipe implements PipeTransform {
 
   transform(technology: string): string {
     
-    const icons: { [key in TechnologiesNames]: string } = {
+    const icons: Record<TechnologiesNames, string> = {
       [TechnologiesNames.ANGULAR]: 'angular.svg',
       [TechnologiesNames.ANGULARMATERIAL]: 'angularmaterial-original.svg',
       [TechnologiesNames.TAILWIND]: 'tailwindcss-original.svg',

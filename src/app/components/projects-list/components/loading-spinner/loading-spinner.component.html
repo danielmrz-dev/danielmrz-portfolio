@@ -1,4 +1,6 @@
-<div class="spinner" *ngIf="!(projectsList)?.length">
+@let projects = projectsList();
+
+<div class="spinner" *ngIf="!(projects)?.length">
     <!-- <ngx-spinner
         bdColor="transparent"
         size="medium"
