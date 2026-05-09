@@ -22,11 +22,11 @@ export class TechnologiesListComponent {
     });
   }
 
-  getTexts(lang: Language): string {
+  getTexts(lang: Language, xpYears: number): string {
     const text: Record<Language, string> = {
-      pt: 'anos de experiência',
-      es: 'años de experiencia',
-      en: 'years experience',
+      pt: `${xpYears} ${xpYears > 1 ? "anos" : "ano"} de experiência`,
+      es: `${xpYears} ${xpYears > 1 ? "años" : "año"} de experiencia`,
+      en: `${xpYears} ${xpYears > 1 ? "years" : "year"} experience`,
     };
 
     return text[lang];
