@@ -23,7 +23,7 @@ jobs:
       - name: Rodando a checagem de tipagem (tsc)
         run: npx tsc --noEmit
 
-      - name: Lint
+      - name: Rodando o ESLint
         run: npm run lint
 
       - name: Rodando testes unitários

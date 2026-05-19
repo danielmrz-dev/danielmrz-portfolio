@@ -1,0 +1,7 @@
+echo "🔍 Checando tipagem..."
+npx tsc --noEmit
+echo "Tipagem ok! ✅"
+
+echo "Rodando testes... 🧪"
+npm run test -- --watch=false --browsers=ChromeHeadless
+echo "Testes ok! ✅"
