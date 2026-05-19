@@ -7,7 +7,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout do código
+      - name: Clonando o repositório dentro da VM
         uses: actions/checkout@v4
 
       - name: Configurando Node.js
