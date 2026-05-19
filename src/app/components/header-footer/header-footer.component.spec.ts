@@ -8,7 +8,7 @@ import { take } from "rxjs";
 
 describe(HeaderFooterComponent.name, () => {
 
-    let prot = HeaderFooterComponent.prototype;
+    const prot = HeaderFooterComponent.prototype;
     let component: HeaderFooterComponent;
     let service: TranslationsService;
     let fixture: ComponentFixture<HeaderFooterComponent>;

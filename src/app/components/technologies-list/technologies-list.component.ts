@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, inject } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
 import { TranslationsService } from '../../services/translations.service';
 import { Language } from '../../models/language.type';
 import { technologiesList } from '../../consts/technologies-list.const';
@@ -11,7 +11,7 @@ import { technologiesList } from '../../consts/technologies-list.const';
   templateUrl: './technologies-list.component.html',
   styleUrl: './technologies-list.component.scss',
 })
-export class TechnologiesListComponent {
+export class TechnologiesListComponent implements OnInit {
   currentLanguage: Language = 'en';
   technologiesList = technologiesList;
   private readonly _translationsService = inject(TranslationsService);

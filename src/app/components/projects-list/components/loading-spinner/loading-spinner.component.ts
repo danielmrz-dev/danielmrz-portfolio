@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, CUSTOM_ELEMENTS_SCHEMA, inject, input } from '@angular/core';
+import { Component, CUSTOM_ELEMENTS_SCHEMA, inject, input, OnInit } from '@angular/core';
 import { NgxSpinnerModule, NgxSpinnerService } from 'ngx-spinner';
 import { ProjectsList } from '../../../../models/projects-list.type';
 import { Language } from '../../../../models/language.type';
@@ -13,7 +13,7 @@ import { TranslationsService } from '../../../../services/translations.service';
   templateUrl: './loading-spinner.component.html',
   styleUrl: './loading-spinner.component.scss'
 })
-export class LoadingSpinnerComponent {
+export class LoadingSpinnerComponent implements OnInit {
 
   projectsList = input.required<ProjectsList | null>();
 

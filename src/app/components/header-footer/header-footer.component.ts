@@ -53,7 +53,7 @@ export class HeaderFooterComponent implements OnInit {
     } else if (tagName === 'app-footer') {
       this.isFooter = true;
     }
-    this.languageSubscription = this._languagesService.currentLanguage$.subscribe(() => { });
+    this.languageSubscription = this._languagesService.currentLanguage$.subscribe();
   }
 
   changeLanguage(lang: Language) {

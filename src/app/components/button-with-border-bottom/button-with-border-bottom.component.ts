@@ -10,7 +10,7 @@ import { SafeHtml } from '@angular/platform-browser';
 })
 export class ButtonWithBorderBottomComponent {
   @Input({ required: true }) buttonText: string | SafeHtml = '';
-  @Input() targetComponent: string = '';
+  @Input() targetComponent = '';
   @Input() link: string | null = null;
 
   scrollToTarget(evento: Event) {

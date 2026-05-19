@@ -11,7 +11,7 @@ export class EmailService {
     private templateId = 'template_kvive7u';
     private publicKey = 'hNSPHmUfWsO46LISD';
 
-    sendEmail(formData: IFormData): Promise<any> {
+    sendEmail(formData: IFormData): Promise<unknown> {
         return emailjs.send(this.serviceId, this.templateId, { 
             to_name: "Daniel",
             from_name: formData.name,

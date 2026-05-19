@@ -1,4 +1,4 @@
-import { Component, inject, ViewEncapsulation } from '@angular/core';
+import { Component, inject, OnInit, ViewEncapsulation } from '@angular/core';
 import { ButtonWithBorderBottomComponent } from "../button-with-border-bottom/button-with-border-bottom.component";
 import { TranslationsService } from '../../services/translations.service';
 import { CommonModule } from '@angular/common';
@@ -15,7 +15,7 @@ import { TranslatedTexts } from '../../models/translation-texts.interface';
   styleUrl: './dev-introduction.component.scss',
   encapsulation: ViewEncapsulation.None
 })
-export class DevIntroductionComponent {
+export class DevIntroductionComponent implements OnInit {
   
   private readonly sanitizer = inject(DomSanitizer)
   readonly _translationsService = inject(TranslationsService)

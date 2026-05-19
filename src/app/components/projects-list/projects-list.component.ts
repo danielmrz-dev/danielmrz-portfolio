@@ -1,4 +1,4 @@
-import { Component, CUSTOM_ELEMENTS_SCHEMA, inject } from '@angular/core';
+import { Component, CUSTOM_ELEMENTS_SCHEMA, inject, OnInit } from '@angular/core';
 import { ButtonWithBorderBottomComponent } from '../button-with-border-bottom/button-with-border-bottom.component';
 import { CommonModule } from '@angular/common';
 import { ProjectsList } from '../../models/projects-list.type';
@@ -25,7 +25,7 @@ import { TranslatedTexts } from '../../models/translation-texts.interface';
   templateUrl: './projects-list.component.html',
   styleUrl: './projects-list.component.scss',
 })
-export class ProjectsListComponent {
+export class ProjectsListComponent implements OnInit {
   projectsList$: Observable<ProjectsList> = of([]);
   projectHovered: number | null = null;
   currentLanguage: Language = 'en';

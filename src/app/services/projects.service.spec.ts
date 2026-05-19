@@ -7,7 +7,7 @@ import { apiLink, mockProjetos } from "../tests/mocks/mocks";
 describe(ProjectsService.name, () => {
 
     let service: ProjectsService;
-    let prot = ProjectsService.prototype;
+    const prot = ProjectsService.prototype;
     let httpController: HttpTestingController;
 
     beforeEach(() => {
