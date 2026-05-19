@@ -1,7 +1,7 @@
-echo "🔍 Checando tipagem..."
+echo "\033[32m🔍 Checando tipagem...\033[0m"
 npx tsc --noEmit
-echo "Tipagem ok! ✅"
+echo "\033[32m✅ Tipagem ok!\033[0m"
 
-echo "Rodando testes... 🧪"
+echo "\033[32m🧪 Rodando testes...\033[0m"
 npm run test -- --watch=false --browsers=ChromeHeadless
-echo "Testes ok! ✅"
+echo "\033[32m✅ Testes ok!\033[0m"
