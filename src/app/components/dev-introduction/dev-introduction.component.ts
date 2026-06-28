@@ -1,7 +1,7 @@
 import { Component, inject, OnInit, ViewEncapsulation } from '@angular/core';
 import { ButtonWithBorderBottomComponent } from "../button-with-border-bottom/button-with-border-bottom.component";
 import { TranslationsService } from '../../services/translations.service';
-import { CommonModule } from '@angular/common';
+
 import { Language } from '../../models/language.type';
 import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
 import { TranslatedTexts } from '../../models/translation-texts.interface';
@@ -9,7 +9,7 @@ import { TranslatedTexts } from '../../models/translation-texts.interface';
 
 @Component({
     selector: 'app-dev-introduction',
-    imports: [ButtonWithBorderBottomComponent, CommonModule],
+    imports: [ButtonWithBorderBottomComponent],
     templateUrl: './dev-introduction.component.html',
     styleUrl: './dev-introduction.component.scss',
     encapsulation: ViewEncapsulation.None

@@ -1,4 +1,4 @@
-import { CommonModule } from '@angular/common';
+
 import { Component, inject, OnInit } from '@angular/core';
 import { TranslationsService } from '../../services/translations.service';
 import { Language } from '../../models/language.type';
@@ -6,7 +6,7 @@ import { technologiesList } from '../../consts/technologies-list.const';
 
 @Component({
     selector: 'app-technologies-list',
-    imports: [CommonModule],
+    imports: [],
     templateUrl: './technologies-list.component.html',
     styleUrl: './technologies-list.component.scss'
 })

@@ -1,5 +1,5 @@
 import { Component, ElementRef, HostBinding, inject, OnInit } from '@angular/core';
-import { CommonModule } from '@angular/common';
+
 import { ISocialMediaLink } from '../../models/social-media-link.interface';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatMenuModule } from '@angular/material/menu';
@@ -9,7 +9,7 @@ import { Subscription } from 'rxjs';
 
 @Component({
     selector: 'app-header, app-footer',
-    imports: [CommonModule, MatTooltipModule, MatMenuModule],
+    imports: [MatTooltipModule, MatMenuModule],
     templateUrl: './header-footer.component.html',
     styleUrl: './header-footer.component.scss'
 })

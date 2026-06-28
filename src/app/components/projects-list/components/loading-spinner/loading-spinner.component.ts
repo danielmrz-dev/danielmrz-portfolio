@@ -1,4 +1,4 @@
-import { CommonModule } from '@angular/common';
+
 import { Component, CUSTOM_ELEMENTS_SCHEMA, inject, input, OnInit } from '@angular/core';
 import { NgxSpinnerModule, NgxSpinnerService } from 'ngx-spinner';
 import { ProjectsList } from '../../../../models/projects-list.type';
@@ -7,7 +7,7 @@ import { TranslationsService } from '../../../../services/translations.service';
 
 @Component({
     selector: 'app-loading-spinner',
-    imports: [NgxSpinnerModule, CommonModule],
+    imports: [NgxSpinnerModule],
     schemas: [CUSTOM_ELEMENTS_SCHEMA],
     templateUrl: './loading-spinner.component.html',
     styleUrl: './loading-spinner.component.scss'
