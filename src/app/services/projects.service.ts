@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { inject, Injectable } from '@angular/core';
-import { ProjectsList } from '../models/projects-list.type';
-import { Observable } from 'rxjs';
+import { catchError, Observable, of } from 'rxjs';
+import { IProjeto } from '../models/projeto.interface';
 
 @Injectable({
   providedIn: 'root'
@@ -9,9 +9,14 @@ import { Observable } from 'rxjs';
 export class ProjectsService {
 
   readonly api: string = "http://localhost:8080/projetos"
-  private readonly _http = inject(HttpClient)
+  private readonly _http = inject(HttpClient);
 
-  getProjects(): Observable<ProjectsList> {
-    return this._http.get<ProjectsList>(this.api);
+  getProjects(): Observable<IProjeto[]> {
+    return this._http.get<IProjeto[]>(this.api).pipe(
+      catchError((err) => {
+        console.log(err);
+        return of([])
+      })
+    );
   }
 }

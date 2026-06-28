@@ -7,7 +7,8 @@
     <app-loading-spinner [projectsList]="projectsList$ | async"></app-loading-spinner>
     
     <ul class="projects__list">
-        <li class="projects__project" *ngFor="let project of (projectsList$ | async); let i = index">
+      @for (project of projectsList$ | async; track $index) {
+        <li class="projects__project">
             <picture class="projects__project-image">
                 <source [srcset]="project.image" media="(min-width: 600px)" type="image/webp">
                 <img [src]="project.image" alt="">
@@ -23,11 +24,12 @@
                     </li>
                 </ul>
             </div>
-            <div class="projects__project-actions-btns" [ngClass]="{ 'hover': projectHovered === i }" (mouseenter)="onMouseEnter(i)" (mouseleave)="onMouseLeave()">
+            <div class="projects__project-actions-btns" [ngClass]="{ 'hover': projectHovered === $index }" (mouseenter)="onMouseEnter($index)" (mouseleave)="onMouseLeave()">
                 <app-button-with-border-bottom [buttonText]="getTexts(currentLanguage, 'seeProjectButton')" [link]="project.liveSiteLink" targetComponent="" class="projects__header-btn"></app-button-with-border-bottom>
                 <app-button-with-border-bottom [buttonText]="getTexts(currentLanguage, 'seeCodeButton')" [link]="project.repositoryLink" targetComponent="" class="projects__header-btn"></app-button-with-border-bottom>
             </div>
         </li>
+      }
     </ul>
 </section>
 
