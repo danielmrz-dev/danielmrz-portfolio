@@ -1,7 +1,7 @@
 import { ProjectsList } from '../../models/projects-list.type';
 
 export const apiLink =
-  'https://danielmrz-portfolio-backend-production.up.railway.app/projetos';
+  'http://localhost:8080/projetos';
 export const mockProjetos: ProjectsList = [
   {
     name: 'Designo Multi-Page Website',
