@@ -1,18 +1,25 @@
-import { Component, ElementRef, HostBinding, inject, OnInit } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { ISocialMediaLink } from '../../models/social-media-link.interface';
-import { MatTooltipModule } from '@angular/material/tooltip';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  ElementRef,
+  HostBinding,
+  inject,
+  OnInit,
+} from '@angular/core';
+
 import { MatMenuModule } from '@angular/material/menu';
-import { Language } from '../../models/language.type';
-import { TranslationsService } from '../../services/translations.service';
+import { MatTooltipModule } from '@angular/material/tooltip';
 import { Subscription } from 'rxjs';
+import { Language } from '../../models/language.type';
+import { ISocialMediaLink } from '../../models/social-media-link.interface';
+import { TranslationsService } from '../../services/translations.service';
 
 @Component({
   selector: 'app-header, app-footer',
-  standalone: true,
-  imports: [CommonModule, MatTooltipModule, MatMenuModule],
+  imports: [MatTooltipModule, MatMenuModule],
   templateUrl: './header-footer.component.html',
-  styleUrl: './header-footer.component.scss'
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  styleUrl: './header-footer.component.scss',
 })
 export class HeaderFooterComponent implements OnInit {
   socialMediaLinks: ISocialMediaLink[] = [
@@ -38,7 +45,7 @@ export class HeaderFooterComponent implements OnInit {
     },
   ];
 
-  languageSubscription!: Subscription
+  languageSubscription!: Subscription;
 
   @HostBinding('class.is-header') isHeader = false;
   @HostBinding('class.is-footer') isFooter = false;
@@ -53,11 +60,12 @@ export class HeaderFooterComponent implements OnInit {
     } else if (tagName === 'app-footer') {
       this.isFooter = true;
     }
-    this.languageSubscription = this._languagesService.currentLanguage$.subscribe();
+    this.languageSubscription =
+      this._languagesService.currentLanguage$.subscribe();
   }
 
   changeLanguage(lang: Language) {
-    this._languagesService.changeLanguage(lang)
+    this._languagesService.changeLanguage(lang);
     this.languageSubscription.unsubscribe();
   }
 }

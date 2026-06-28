@@ -1,38 +1,37 @@
 <div class="header-footer">
-    <span class="header-footer__title">danielmariz</span>
-    
-    <ng-container *ngIf="isFooter; else languageButtons">
-        
-        <ul class="header-footer__links-list">
-            <li class="header-footer__link-item" *ngFor="let link of socialMediaLinks">
-                <a [href]="link.link" class="header-footer__link" rel="noopener noreferrer" target="_blank" [attr.aria-label]="link.socialMedia" >
-                    <img [src]="link.icon" [alt]="link.socialMedia">
-                </a>
-            </li>
-        </ul>
-    </ng-container>
+  <span class="header-footer__title">danielmariz</span>
 
-    <ng-template #languageButtons>
-        <button data-testId="menu-btn" class="header-footer__languages-menu" [matMenuTriggerFor]="menu">
-            <img src="earth.svg" alt="">
+  @if (isFooter) {
+    <ul class="header-footer__links-list">
+      @for (link of socialMediaLinks; track link) {
+        <li class="header-footer__link-item">
+          <a [href]="link.link" class="header-footer__link" rel="noopener noreferrer" target="_blank" [attr.aria-label]="link.socialMedia" >
+            <img [src]="link.icon" [alt]="link.socialMedia">
+          </a>
+        </li>
+      }
+    </ul>
+  } @else {
+    <button data-testId="menu-btn" class="header-footer__languages-menu" [matMenuTriggerFor]="menu">
+      <img src="earth.svg" alt="">
+    </button>
+    <mat-menu #menu xPosition="before" class="header-footer__mat-menu">
+      <div class="header-footer__btns-container">
+        <button data-testId="pt" mat-menu-item class="header-footer__language-btns" (click)="changeLanguage('pt')">
+          Português
+          <img src="brasil.png" alt="">
         </button>
-        <mat-menu #menu xPosition="before" class="header-footer__mat-menu">
-            <div class="header-footer__btns-container">
-                
-                <button data-testId="pt" mat-menu-item class="header-footer__language-btns" (click)="changeLanguage('pt')">
-                    Português
-                    <img src="brasil.png" alt="">
-                </button>
-                <button data-testId="es" mat-menu-item class="header-footer__language-btns" (click)="changeLanguage('es')">
-                    Español
-                    <img src="spain.png" alt="">
-                </button>
-                <button data-testId="en" mat-menu-item class="header-footer__language-btns" (click)="changeLanguage('en')">
-                    English
-                    <img src="uk.png" alt="">
-                </button>
-            </div>
-        </mat-menu>
-    </ng-template>
-    
+        <button data-testId="es" mat-menu-item class="header-footer__language-btns" (click)="changeLanguage('es')">
+          Español
+          <img src="spain.png" alt="">
+        </button>
+        <button data-testId="en" mat-menu-item class="header-footer__language-btns" (click)="changeLanguage('en')">
+          English
+          <img src="uk.png" alt="">
+        </button>
+      </div>
+    </mat-menu>
+  }
+
+
 </div>

@@ -1,7 +1,7 @@
 @use '@angular/material' as mat;
 @use './variables' as var;
 
-$primary-palette: mat.define-palette((
+$primary-palette: mat.m2-define-palette((
     500: #4EE1A0,
     100: #C3F8E2,
     200: #9DF3CF,
@@ -14,10 +14,10 @@ $primary-palette: mat.define-palette((
     )
 ));
 
-$accent: mat.define-palette(mat.$pink-palette, A200, A100, A400);
-$warn: mat.define-palette(mat.$red-palette);
+$accent: mat.m2-define-palette(mat.$m2-pink-palette, A200, A100, A400);
+$warn: mat.m2-define-palette(mat.$m2-red-palette);
 
-$theme: mat.define-light-theme((
+$theme: mat.m2-define-light-theme((
     color: (
         primary: $primary-palette,
         accent: $accent,
@@ -25,7 +25,8 @@ $theme: mat.define-light-theme((
     )
 ));
 
-@include mat.core();
+@include mat.elevation-classes();
+@include mat.app-background();
 @include mat.all-component-themes($theme);
 
 .mat-mdc-menu-content {

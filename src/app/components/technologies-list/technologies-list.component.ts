@@ -1,14 +1,18 @@
-import { CommonModule } from '@angular/common';
-import { Component, inject, OnInit } from '@angular/core';
-import { TranslationsService } from '../../services/translations.service';
-import { Language } from '../../models/language.type';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  inject,
+  OnInit,
+} from '@angular/core';
 import { technologiesList } from '../../consts/technologies-list.const';
+import { Language } from '../../models/language.type';
+import { TranslationsService } from '../../services/translations.service';
 
 @Component({
   selector: 'app-technologies-list',
-  standalone: true,
-  imports: [CommonModule],
+  imports: [],
   templateUrl: './technologies-list.component.html',
+  changeDetection: ChangeDetectionStrategy.OnPush,
   styleUrl: './technologies-list.component.scss',
 })
 export class TechnologiesListComponent implements OnInit {
@@ -24,9 +28,9 @@ export class TechnologiesListComponent implements OnInit {
 
   getTexts(lang: Language, xpYears: number): string {
     const text: Record<Language, string> = {
-      pt: `${xpYears} ${xpYears > 1 ? "anos" : "ano"} de experiência`,
-      es: `${xpYears} ${xpYears > 1 ? "años" : "año"} de experiencia`,
-      en: `${xpYears} ${xpYears > 1 ? "years" : "year"} experience`,
+      pt: `${xpYears} ${xpYears > 1 ? 'anos' : 'ano'} de experiência`,
+      es: `${xpYears} ${xpYears > 1 ? 'años' : 'año'} de experiencia`,
+      en: `${xpYears} ${xpYears > 1 ? 'years' : 'year'} experience`,
     };
 
     return text[lang];

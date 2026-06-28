@@ -1,4 +1,8 @@
-import { Component, inject, Inject } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  inject,
+} from '@angular/core';
 import {
   MAT_DIALOG_DATA,
   MatDialogClose,
@@ -6,16 +10,15 @@ import {
 } from '@angular/material/dialog';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
-import { IFormData } from '../../models/form-data.interface';
 import { CommonModule } from '@angular/common';
-import { ButtonWithBorderBottomComponent } from '../button-with-border-bottom/button-with-border-bottom.component';
-import { TranslationsService } from '../../services/translations.service';
+import { IFormData } from '../../models/form-data.interface';
 import { Language } from '../../models/language.type';
 import { TranslatedTexts } from '../../models/translation-texts.interface';
+import { TranslationsService } from '../../services/translations.service';
+import { ButtonWithBorderBottomComponent } from '../button-with-border-bottom/button-with-border-bottom.component';
 
 @Component({
   selector: 'app-modal-email-sent',
-  standalone: true,
   imports: [
     MatDialogContent,
     CommonModule,
@@ -24,15 +27,17 @@ import { TranslatedTexts } from '../../models/translation-texts.interface';
     ButtonWithBorderBottomComponent,
   ],
   templateUrl: './modal-email-sent.component.html',
+  changeDetection: ChangeDetectionStrategy.OnPush,
   styleUrl: './modal-email-sent.component.scss',
 })
 export class ModalEmailSentComponent {
-  status: string;
-  currentLanguage: Language = 'en';
-  readonly _translationsService = inject(TranslationsService);
+  private readonly _data = inject<IFormData>(MAT_DIALOG_DATA);
+  private readonly _translationsService = inject(TranslationsService);
 
-  constructor(@Inject(MAT_DIALOG_DATA) public data: IFormData) {
-    this.status = data['status'] as string;
+  status = this._data['status'] as string;
+  currentLanguage: Language = 'en';
+
+  constructor() {
     this._translationsService.currentLanguage$.subscribe((lang) => {
       this.currentLanguage = lang;
     });

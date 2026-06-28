@@ -1,4 +1,4 @@
-import { provideHttpClient } from '@angular/common/http';
+import { provideHttpClient, withXhr } from '@angular/common/http';
 import {
   HttpTestingController,
   provideHttpClientTesting,
@@ -6,6 +6,7 @@ import {
 import { TestBed } from '@angular/core/testing';
 import { apiLink, mockProjetos } from '../tests/mocks/mocks';
 import { ProjectsService } from './projects.service';
+import { afterEach, beforeEach, describe, expect, it } from 'vitest';
 
 describe(ProjectsService.name, () => {
   let service: ProjectsService;
@@ -16,7 +17,7 @@ describe(ProjectsService.name, () => {
     TestBed.configureTestingModule({
       providers: [
         ProjectsService,
-        provideHttpClient(),
+        provideHttpClient(withXhr()),
         provideHttpClientTesting(),
       ],
     });
