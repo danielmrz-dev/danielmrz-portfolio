@@ -8,12 +8,11 @@ import { TranslatedTexts } from '../../models/translation-texts.interface';
 
 
 @Component({
-  selector: 'app-dev-introduction',
-  standalone: true,
-  imports: [ButtonWithBorderBottomComponent, CommonModule],
-  templateUrl: './dev-introduction.component.html',
-  styleUrl: './dev-introduction.component.scss',
-  encapsulation: ViewEncapsulation.None
+    selector: 'app-dev-introduction',
+    imports: [ButtonWithBorderBottomComponent, CommonModule],
+    templateUrl: './dev-introduction.component.html',
+    styleUrl: './dev-introduction.component.scss',
+    encapsulation: ViewEncapsulation.None
 })
 export class DevIntroductionComponent implements OnInit {
   

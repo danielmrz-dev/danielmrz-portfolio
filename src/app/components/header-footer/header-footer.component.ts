@@ -8,11 +8,10 @@ import { TranslationsService } from '../../services/translations.service';
 import { Subscription } from 'rxjs';
 
 @Component({
-  selector: 'app-header, app-footer',
-  standalone: true,
-  imports: [CommonModule, MatTooltipModule, MatMenuModule],
-  templateUrl: './header-footer.component.html',
-  styleUrl: './header-footer.component.scss'
+    selector: 'app-header, app-footer',
+    imports: [CommonModule, MatTooltipModule, MatMenuModule],
+    templateUrl: './header-footer.component.html',
+    styleUrl: './header-footer.component.scss'
 })
 export class HeaderFooterComponent implements OnInit {
   socialMediaLinks: ISocialMediaLink[] = [

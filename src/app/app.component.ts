@@ -6,10 +6,9 @@ import { ProjectsListComponent } from "./components/projects-list/projects-list.
 import { ContactFormComponent } from "./components/contact-form/contact-form.component";
 
 @Component({
-  selector: 'app-root',
-  standalone: true,
-  imports: [HeaderFooterComponent, DevIntroductionComponent, TechnologiesListComponent, ProjectsListComponent, ContactFormComponent],
-  templateUrl: './app.component.html',
-  styleUrl: './app.component.scss'
+    selector: 'app-root',
+    imports: [HeaderFooterComponent, DevIntroductionComponent, TechnologiesListComponent, ProjectsListComponent, ContactFormComponent],
+    templateUrl: './app.component.html',
+    styleUrl: './app.component.scss'
 })
 export class AppComponent {}

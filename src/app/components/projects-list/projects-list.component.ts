@@ -12,18 +12,17 @@ import { TranslationsService } from '../../services/translations.service';
 import { TranslatedTexts } from '../../models/translation-texts.interface';
 
 @Component({
-  selector: 'app-projects-list',
-  standalone: true,
-  imports: [
-    ButtonWithBorderBottomComponent,
-    CommonModule,
-    TechnologyIconPipe,
-    MatTooltipModule,
-    LoadingSpinnerComponent,
-  ],
-  schemas: [CUSTOM_ELEMENTS_SCHEMA],
-  templateUrl: './projects-list.component.html',
-  styleUrl: './projects-list.component.scss',
+    selector: 'app-projects-list',
+    imports: [
+        ButtonWithBorderBottomComponent,
+        CommonModule,
+        TechnologyIconPipe,
+        MatTooltipModule,
+        LoadingSpinnerComponent,
+    ],
+    schemas: [CUSTOM_ELEMENTS_SCHEMA],
+    templateUrl: './projects-list.component.html',
+    styleUrl: './projects-list.component.scss'
 })
 export class ProjectsListComponent implements OnInit {
   projectsList$: Observable<ProjectsList> = of([]);

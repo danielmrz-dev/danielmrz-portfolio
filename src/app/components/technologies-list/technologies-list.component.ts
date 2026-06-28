@@ -5,11 +5,10 @@ import { Language } from '../../models/language.type';
 import { technologiesList } from '../../consts/technologies-list.const';
 
 @Component({
-  selector: 'app-technologies-list',
-  standalone: true,
-  imports: [CommonModule],
-  templateUrl: './technologies-list.component.html',
-  styleUrl: './technologies-list.component.scss',
+    selector: 'app-technologies-list',
+    imports: [CommonModule],
+    templateUrl: './technologies-list.component.html',
+    styleUrl: './technologies-list.component.scss'
 })
 export class TechnologiesListComponent implements OnInit {
   currentLanguage: Language = 'en';

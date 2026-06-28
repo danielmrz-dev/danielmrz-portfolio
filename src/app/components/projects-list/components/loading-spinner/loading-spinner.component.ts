@@ -6,12 +6,11 @@ import { Language } from '../../../../models/language.type';
 import { TranslationsService } from '../../../../services/translations.service';
 
 @Component({
-  selector: 'app-loading-spinner',
-  standalone: true,
-  imports: [NgxSpinnerModule, CommonModule],
-  schemas: [CUSTOM_ELEMENTS_SCHEMA],
-  templateUrl: './loading-spinner.component.html',
-  styleUrl: './loading-spinner.component.scss'
+    selector: 'app-loading-spinner',
+    imports: [NgxSpinnerModule, CommonModule],
+    schemas: [CUSTOM_ELEMENTS_SCHEMA],
+    templateUrl: './loading-spinner.component.html',
+    styleUrl: './loading-spinner.component.scss'
 })
 export class LoadingSpinnerComponent implements OnInit {
 

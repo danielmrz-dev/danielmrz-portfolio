@@ -14,17 +14,16 @@ import { Language } from '../../models/language.type';
 import { TranslatedTexts } from '../../models/translation-texts.interface';
 
 @Component({
-  selector: 'app-modal-email-sent',
-  standalone: true,
-  imports: [
-    MatDialogContent,
-    CommonModule,
-    MatDialogClose,
-    MatProgressSpinnerModule,
-    ButtonWithBorderBottomComponent,
-  ],
-  templateUrl: './modal-email-sent.component.html',
-  styleUrl: './modal-email-sent.component.scss',
+    selector: 'app-modal-email-sent',
+    imports: [
+        MatDialogContent,
+        CommonModule,
+        MatDialogClose,
+        MatProgressSpinnerModule,
+        ButtonWithBorderBottomComponent,
+    ],
+    templateUrl: './modal-email-sent.component.html',
+    styleUrl: './modal-email-sent.component.scss'
 })
 export class ModalEmailSentComponent {
   status: string;
