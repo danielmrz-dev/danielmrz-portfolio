@@ -1,6 +1,6 @@
 export enum TechnologiesNames {
   ANGULAR = 'angular',
-  ANGULARMATERIAL = 'angular material',
+  ANGULAR_MATERIAL = 'angular_material',
   TAILWIND = 'tailwindcss',
   TYPESCRIPT = 'typescript',
   JAVASCRIPT = 'javascript',
@@ -8,5 +8,8 @@ export enum TechnologiesNames {
   SASS = 'sass',
   NODEJS = 'nodejs',
   EXPRESS = 'express',
-  JWT = 'json web token (jwt)',
+  JWT = 'jwt',
+  JAVA = 'java',
+  SPRING = 'spring',
+  REACT = 'react',
 }

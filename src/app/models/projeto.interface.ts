@@ -1,10 +1,7 @@
 export interface IProjeto {
-    name: string;
-    images: {
-        small: string;
-        large: string;
-    }
-    technologies: string[];
-    liveSite: string;
-    repository: string;
+  name: string;
+  image: string;
+  technologies: string[];
+  liveSiteLink: string;
+  repositoryLink: string;
 }

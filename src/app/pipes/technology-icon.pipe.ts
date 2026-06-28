@@ -11,7 +11,7 @@ export class TechnologyIconPipe implements PipeTransform {
     
     const icons: Record<TechnologiesNames, string> = {
       [TechnologiesNames.ANGULAR]: 'angular.svg',
-      [TechnologiesNames.ANGULARMATERIAL]: 'angularmaterial-original.svg',
+      [TechnologiesNames.ANGULAR_MATERIAL]: 'angularmaterial-original.svg',
       [TechnologiesNames.TAILWIND]: 'tailwindcss-original.svg',
       [TechnologiesNames.TYPESCRIPT]: 'typescript-original.svg',
       [TechnologiesNames.JAVASCRIPT]: 'javascript-original.svg',
@@ -20,6 +20,9 @@ export class TechnologyIconPipe implements PipeTransform {
       [TechnologiesNames.NODEJS]: 'nodejs-original.svg',
       [TechnologiesNames.EXPRESS]: 'express-original.svg',
       [TechnologiesNames.JWT]: 'jwt-original.png',
+      [TechnologiesNames.JAVA]: 'java-original.svg',
+      [TechnologiesNames.SPRING]: 'spring-original.svg',
+      [TechnologiesNames.REACT]: 'react-original.svg',
     }
     
     return icons[technology as TechnologiesNames];

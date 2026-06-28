@@ -8,7 +8,7 @@ import { Observable } from 'rxjs';
 })
 export class ProjectsService {
 
-  readonly api: string = "https://danielmrz-portfolio-backend-production.up.railway.app/projetos"
+  readonly api: string = "http://localhost:8080/projetos"
   private readonly _http = inject(HttpClient)
 
   getProjects(): Observable<ProjectsList> {
