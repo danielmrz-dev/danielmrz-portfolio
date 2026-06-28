@@ -1,10 +1,11 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, ChangeDetectionStrategy } from '@angular/core';
 import { SafeHtml } from '@angular/platform-browser';
 
 @Component({
     selector: 'app-button-with-border-bottom',
     imports: [],
     templateUrl: './button-with-border-bottom.component.html',
+    changeDetection: ChangeDetectionStrategy.Eager,
     styleUrl: './button-with-border-bottom.component.scss'
 })
 export class ButtonWithBorderBottomComponent {

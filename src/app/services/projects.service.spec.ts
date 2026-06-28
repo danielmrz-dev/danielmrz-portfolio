@@ -1,4 +1,4 @@
-import { provideHttpClient } from '@angular/common/http';
+import { provideHttpClient, withXhr } from '@angular/common/http';
 import {
   HttpTestingController,
   provideHttpClientTesting,
@@ -16,7 +16,7 @@ describe(ProjectsService.name, () => {
     TestBed.configureTestingModule({
       providers: [
         ProjectsService,
-        provideHttpClient(),
+        provideHttpClient(withXhr()),
         provideHttpClientTesting(),
       ],
     });

@@ -1,4 +1,4 @@
-import { Component, ElementRef, HostBinding, inject, OnInit } from '@angular/core';
+import { Component, ElementRef, HostBinding, inject, OnInit, ChangeDetectionStrategy } from '@angular/core';
 
 import { ISocialMediaLink } from '../../models/social-media-link.interface';
 import { MatTooltipModule } from '@angular/material/tooltip';
@@ -11,6 +11,7 @@ import { Subscription } from 'rxjs';
     selector: 'app-header, app-footer',
     imports: [MatTooltipModule, MatMenuModule],
     templateUrl: './header-footer.component.html',
+    changeDetection: ChangeDetectionStrategy.Eager,
     styleUrl: './header-footer.component.scss'
 })
 export class HeaderFooterComponent implements OnInit {

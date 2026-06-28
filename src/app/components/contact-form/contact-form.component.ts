@@ -1,4 +1,4 @@
-import { Component, ElementRef, inject, OnInit } from '@angular/core';
+import { Component, ElementRef, inject, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormBuilder, FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { OnlyLettersDirective } from '../../validators/only-letters.directive';
@@ -14,6 +14,7 @@ import { TranslatedTexts } from '../../models/translation-texts.interface';
     selector: 'app-contact-form',
     imports: [CommonModule, ReactiveFormsModule, OnlyLettersDirective, EmailValidatorDirective],
     templateUrl: './contact-form.component.html',
+    changeDetection: ChangeDetectionStrategy.Eager,
     styleUrl: './contact-form.component.scss'
 })
 export class ContactFormComponent implements OnInit {

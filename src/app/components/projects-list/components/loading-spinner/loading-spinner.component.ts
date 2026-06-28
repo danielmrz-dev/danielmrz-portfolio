@@ -1,5 +1,5 @@
 
-import { Component, CUSTOM_ELEMENTS_SCHEMA, inject, input, OnInit } from '@angular/core';
+import { Component, CUSTOM_ELEMENTS_SCHEMA, inject, input, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import { NgxSpinnerModule, NgxSpinnerService } from 'ngx-spinner';
 import { ProjectsList } from '../../../../models/projects-list.type';
 import { Language } from '../../../../models/language.type';
@@ -10,6 +10,7 @@ import { TranslationsService } from '../../../../services/translations.service';
     imports: [NgxSpinnerModule],
     schemas: [CUSTOM_ELEMENTS_SCHEMA],
     templateUrl: './loading-spinner.component.html',
+    changeDetection: ChangeDetectionStrategy.Eager,
     styleUrl: './loading-spinner.component.scss'
 })
 export class LoadingSpinnerComponent implements OnInit {

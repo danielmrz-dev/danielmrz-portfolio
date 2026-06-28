@@ -1,4 +1,4 @@
-import { Component, CUSTOM_ELEMENTS_SCHEMA, inject, OnInit } from '@angular/core';
+import { Component, CUSTOM_ELEMENTS_SCHEMA, inject, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import { ButtonWithBorderBottomComponent } from '../button-with-border-bottom/button-with-border-bottom.component';
 import { CommonModule } from '@angular/common';
 import { ProjectsList } from '../../models/projects-list.type';
@@ -22,6 +22,7 @@ import { TranslatedTexts } from '../../models/translation-texts.interface';
     ],
     schemas: [CUSTOM_ELEMENTS_SCHEMA],
     templateUrl: './projects-list.component.html',
+    changeDetection: ChangeDetectionStrategy.Eager,
     styleUrl: './projects-list.component.scss'
 })
 export class ProjectsListComponent implements OnInit {

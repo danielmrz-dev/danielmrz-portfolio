@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ChangeDetectionStrategy } from '@angular/core';
 import { HeaderFooterComponent } from "./components/header-footer/header-footer.component";
 import { DevIntroductionComponent } from "./components/dev-introduction/dev-introduction.component";
 import { TechnologiesListComponent } from "./components/technologies-list/technologies-list.component";
@@ -9,6 +9,7 @@ import { ContactFormComponent } from "./components/contact-form/contact-form.com
     selector: 'app-root',
     imports: [HeaderFooterComponent, DevIntroductionComponent, TechnologiesListComponent, ProjectsListComponent, ContactFormComponent],
     templateUrl: './app.component.html',
+    changeDetection: ChangeDetectionStrategy.Eager,
     styleUrl: './app.component.scss'
 })
 export class AppComponent {}

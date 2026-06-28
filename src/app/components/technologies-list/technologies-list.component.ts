@@ -1,5 +1,5 @@
 
-import { Component, inject, OnInit } from '@angular/core';
+import { Component, inject, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import { TranslationsService } from '../../services/translations.service';
 import { Language } from '../../models/language.type';
 import { technologiesList } from '../../consts/technologies-list.const';
@@ -8,6 +8,7 @@ import { technologiesList } from '../../consts/technologies-list.const';
     selector: 'app-technologies-list',
     imports: [],
     templateUrl: './technologies-list.component.html',
+    changeDetection: ChangeDetectionStrategy.Eager,
     styleUrl: './technologies-list.component.scss'
 })
 export class TechnologiesListComponent implements OnInit {

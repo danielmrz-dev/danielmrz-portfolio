@@ -1,4 +1,4 @@
-import { Component, inject, Inject } from '@angular/core';
+import { Component, inject, Inject, ChangeDetectionStrategy } from '@angular/core';
 import {
   MAT_DIALOG_DATA,
   MatDialogClose,
@@ -23,6 +23,7 @@ import { TranslatedTexts } from '../../models/translation-texts.interface';
         ButtonWithBorderBottomComponent,
     ],
     templateUrl: './modal-email-sent.component.html',
+    changeDetection: ChangeDetectionStrategy.Eager,
     styleUrl: './modal-email-sent.component.scss'
 })
 export class ModalEmailSentComponent {

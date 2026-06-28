@@ -1,4 +1,4 @@
-import { Component, inject, OnInit, ViewEncapsulation } from '@angular/core';
+import { Component, inject, OnInit, ViewEncapsulation, ChangeDetectionStrategy } from '@angular/core';
 import { ButtonWithBorderBottomComponent } from "../button-with-border-bottom/button-with-border-bottom.component";
 import { TranslationsService } from '../../services/translations.service';
 
@@ -12,6 +12,7 @@ import { TranslatedTexts } from '../../models/translation-texts.interface';
     imports: [ButtonWithBorderBottomComponent],
     templateUrl: './dev-introduction.component.html',
     styleUrl: './dev-introduction.component.scss',
+    changeDetection: ChangeDetectionStrategy.Eager,
     encapsulation: ViewEncapsulation.None
 })
 export class DevIntroductionComponent implements OnInit {
