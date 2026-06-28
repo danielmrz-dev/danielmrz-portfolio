@@ -1,15 +1,19 @@
-
-import { Component, inject, OnInit, ChangeDetectionStrategy } from '@angular/core';
-import { TranslationsService } from '../../services/translations.service';
-import { Language } from '../../models/language.type';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  inject,
+  OnInit,
+} from '@angular/core';
 import { technologiesList } from '../../consts/technologies-list.const';
+import { Language } from '../../models/language.type';
+import { TranslationsService } from '../../services/translations.service';
 
 @Component({
-    selector: 'app-technologies-list',
-    imports: [],
-    templateUrl: './technologies-list.component.html',
-    changeDetection: ChangeDetectionStrategy.Eager,
-    styleUrl: './technologies-list.component.scss'
+  selector: 'app-technologies-list',
+  imports: [],
+  templateUrl: './technologies-list.component.html',
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  styleUrl: './technologies-list.component.scss',
 })
 export class TechnologiesListComponent implements OnInit {
   currentLanguage: Language = 'en';
@@ -24,9 +28,9 @@ export class TechnologiesListComponent implements OnInit {
 
   getTexts(lang: Language, xpYears: number): string {
     const text: Record<Language, string> = {
-      pt: `${xpYears} ${xpYears > 1 ? "anos" : "ano"} de experiência`,
-      es: `${xpYears} ${xpYears > 1 ? "años" : "año"} de experiencia`,
-      en: `${xpYears} ${xpYears > 1 ? "years" : "year"} experience`,
+      pt: `${xpYears} ${xpYears > 1 ? 'anos' : 'ano'} de experiência`,
+      es: `${xpYears} ${xpYears > 1 ? 'años' : 'año'} de experiencia`,
+      en: `${xpYears} ${xpYears > 1 ? 'years' : 'year'} experience`,
     };
 
     return text[lang];
