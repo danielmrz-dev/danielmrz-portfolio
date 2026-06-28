@@ -1,6 +1,7 @@
 import { TestBed } from '@angular/core/testing';
 import { take } from 'rxjs';
 import { TranslationsService } from './translations.service';
+import { beforeEach, describe, expect, it } from 'vitest';
 
 describe(TranslationsService.name, () => {
   let service: TranslationsService;

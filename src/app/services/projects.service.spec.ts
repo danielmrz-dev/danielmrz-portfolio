@@ -6,6 +6,7 @@ import {
 import { TestBed } from '@angular/core/testing';
 import { apiLink, mockProjetos } from '../tests/mocks/mocks';
 import { ProjectsService } from './projects.service';
+import { afterEach, beforeEach, describe, expect, it } from 'vitest';
 
 describe(ProjectsService.name, () => {
   let service: ProjectsService;

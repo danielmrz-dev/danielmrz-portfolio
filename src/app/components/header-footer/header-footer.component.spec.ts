@@ -5,7 +5,7 @@ import { By } from "@angular/platform-browser";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { TranslationsService } from "../../services/translations.service";
 import { take } from "rxjs";
-import { vi } from "vitest";
+import { beforeEach, describe, expect, it, vi } from 'vitest';
 
 describe(HeaderFooterComponent.name, () => {
 
