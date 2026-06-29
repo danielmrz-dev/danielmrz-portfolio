@@ -4,6 +4,6 @@ echo -e "\e[32m✅ Tipagem ok!\e[0m"
 echo -e "\e[32m--------------------------------------------------\e[0m"
 
 echo -e "\e[32m🧪 Rodando testes...\e[0m"
-npm run test -- --watch=false --browsers=ChromeHeadless
+npm run test -- --watch=false
 echo -e "\e[32m✅ Testes ok! Proseguindo com o push...\e[0m"
 echo -e "\e[32m--------------------------------------------------\e[0m"
