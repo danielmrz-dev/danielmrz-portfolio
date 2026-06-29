@@ -31,10 +31,10 @@ import { ButtonWithBorderBottomComponent } from '../button-with-border-bottom/bu
   styleUrl: './modal-email-sent.component.scss',
 })
 export class ModalEmailSentComponent {
-  private readonly _data = inject<IFormData>(MAT_DIALOG_DATA);
+  protected readonly data = inject<IFormData>(MAT_DIALOG_DATA);
   private readonly _translationsService = inject(TranslationsService);
 
-  status = this._data['status'] as string;
+  status = this.data['status'] as string;
   currentLanguage: Language = 'en';
 
   constructor() {
