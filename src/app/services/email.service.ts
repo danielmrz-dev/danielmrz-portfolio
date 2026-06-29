@@ -7,7 +7,7 @@ import { IFormData } from "../models/form-data.interface";
 })
 export class EmailService {
 
-    private serviceId = 'service_o8dux1a'; 
+    private serviceId = 'service_sj64cca'; 
     private templateId = 'template_kvive7u';
     private publicKey = 'hNSPHmUfWsO46LISD';
 
