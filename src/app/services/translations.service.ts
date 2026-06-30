@@ -1,17 +1,13 @@
-import { Injectable } from '@angular/core';
-import { BehaviorSubject } from 'rxjs';
+import { Service, signal } from '@angular/core';
 import { Language } from '../models/language.type';
+import { of } from 'rxjs';
 
-@Injectable({
-  providedIn: 'root'
-})
+@Service()
 export class TranslationsService {
-
-  private language = new BehaviorSubject<Language>('en');
-  currentLanguage$ = this.language.asObservable();
-
+  public language = signal<Language>('en');
+  currentLanguage$ = of();
   changeLanguage(lang: Language) {
-    this.language.next(lang);
+    this.language.set(lang);
+    console.log('Atual: ', this.language());
   }
-
 }

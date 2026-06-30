@@ -1,14 +1,7 @@
-import {
-  ChangeDetectionStrategy,
-  Component,
-  inject,
-  OnInit,
-  ViewEncapsulation,
-} from '@angular/core';
+import { Component, inject, ViewEncapsulation } from '@angular/core';
 import { TranslationsService } from '../../services/translations.service';
 import { ButtonWithBorderBottomComponent } from '../button-with-border-bottom/button-with-border-bottom.component';
 
-import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
 import { Language } from '../../models/language.type';
 import { TranslatedTexts } from '../../models/translation-texts.interface';
 
@@ -17,21 +10,12 @@ import { TranslatedTexts } from '../../models/translation-texts.interface';
   imports: [ButtonWithBorderBottomComponent],
   templateUrl: './dev-introduction.component.html',
   styleUrl: './dev-introduction.component.scss',
-  changeDetection: ChangeDetectionStrategy.OnPush,
   encapsulation: ViewEncapsulation.None,
 })
-export class DevIntroductionComponent implements OnInit {
-  private readonly sanitizer = inject(DomSanitizer);
-  readonly _translationsService = inject(TranslationsService);
-  currentLanguage: Language = 'en';
+export class DevIntroductionComponent {
+  readonly translationsService = inject(TranslationsService);
 
-  ngOnInit(): void {
-    this._translationsService.currentLanguage$.subscribe((lang) => {
-      this.currentLanguage = lang;
-    });
-  }
-
-  getTexts(lang: Language, type: string): SafeHtml | string {
+  getTexts(lang: Language, type: string): string {
     const texts: TranslatedTexts = {
       pt: {
         introduction: `<span class="nice-to">Muito</span> prazer! Sou <span class="introduction__name">Daniel Mariz</span>.`,

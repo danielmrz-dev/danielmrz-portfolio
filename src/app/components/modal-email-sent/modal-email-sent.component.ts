@@ -1,8 +1,4 @@
-import {
-  ChangeDetectionStrategy,
-  Component,
-  inject,
-} from '@angular/core';
+import { Component, inject } from '@angular/core';
 import {
   MAT_DIALOG_DATA,
   MatDialogClose,
@@ -27,21 +23,13 @@ import { ButtonWithBorderBottomComponent } from '../button-with-border-bottom/bu
     ButtonWithBorderBottomComponent,
   ],
   templateUrl: './modal-email-sent.component.html',
-  changeDetection: ChangeDetectionStrategy.OnPush,
   styleUrl: './modal-email-sent.component.scss',
 })
 export class ModalEmailSentComponent {
   protected readonly data = inject<IFormData>(MAT_DIALOG_DATA);
-  private readonly _translationsService = inject(TranslationsService);
+  protected readonly translationsService = inject(TranslationsService);
 
   status = this.data['status'] as string;
-  currentLanguage: Language = 'en';
-
-  constructor() {
-    this._translationsService.currentLanguage$.subscribe((lang) => {
-      this.currentLanguage = lang;
-    });
-  }
 
   getTexts(lang: Language, type: string): string {
     const texts: TranslatedTexts = {

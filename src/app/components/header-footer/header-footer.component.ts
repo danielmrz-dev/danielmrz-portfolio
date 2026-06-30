@@ -1,5 +1,4 @@
 import {
-  ChangeDetectionStrategy,
   Component,
   ElementRef,
   HostBinding,
@@ -9,8 +8,6 @@ import {
 
 import { MatMenuModule } from '@angular/material/menu';
 import { MatTooltipModule } from '@angular/material/tooltip';
-import { Subscription } from 'rxjs';
-import { Language } from '../../models/language.type';
 import { ISocialMediaLink } from '../../models/social-media-link.interface';
 import { TranslationsService } from '../../services/translations.service';
 
@@ -18,7 +15,6 @@ import { TranslationsService } from '../../services/translations.service';
   selector: 'app-header, app-footer',
   imports: [MatTooltipModule, MatMenuModule],
   templateUrl: './header-footer.component.html',
-  changeDetection: ChangeDetectionStrategy.OnPush,
   styleUrl: './header-footer.component.scss',
 })
 export class HeaderFooterComponent implements OnInit {
@@ -45,13 +41,11 @@ export class HeaderFooterComponent implements OnInit {
     },
   ];
 
-  languageSubscription!: Subscription;
-
   @HostBinding('class.is-header') isHeader = false;
   @HostBinding('class.is-footer') isFooter = false;
 
   private readonly _el = inject(ElementRef);
-  private readonly _languagesService = inject(TranslationsService);
+  readonly languagesService = inject(TranslationsService);
 
   ngOnInit() {
     const tagName = this._el.nativeElement.tagName.toLowerCase();
@@ -60,12 +54,5 @@ export class HeaderFooterComponent implements OnInit {
     } else if (tagName === 'app-footer') {
       this.isFooter = true;
     }
-    this.languageSubscription =
-      this._languagesService.currentLanguage$.subscribe();
-  }
-
-  changeLanguage(lang: Language) {
-    this._languagesService.changeLanguage(lang);
-    this.languageSubscription.unsubscribe();
   }
 }

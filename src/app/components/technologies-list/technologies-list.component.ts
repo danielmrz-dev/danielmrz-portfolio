@@ -1,30 +1,16 @@
-import {
-  ChangeDetectionStrategy,
-  Component,
-  inject,
-  OnInit,
-} from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { technologiesList } from '../../consts/technologies-list.const';
 import { Language } from '../../models/language.type';
 import { TranslationsService } from '../../services/translations.service';
 
 @Component({
   selector: 'app-technologies-list',
-  imports: [],
   templateUrl: './technologies-list.component.html',
-  changeDetection: ChangeDetectionStrategy.OnPush,
   styleUrl: './technologies-list.component.scss',
 })
-export class TechnologiesListComponent implements OnInit {
-  currentLanguage: Language = 'en';
+export class TechnologiesListComponent {
   technologiesList = technologiesList;
-  private readonly _translationsService = inject(TranslationsService);
-
-  ngOnInit(): void {
-    this._translationsService.currentLanguage$.subscribe((lang) => {
-      this.currentLanguage = lang;
-    });
-  }
+  protected readonly translationsService = inject(TranslationsService);
 
   getTexts(lang: Language, xpYears: number): string {
     const text: Record<Language, string> = {

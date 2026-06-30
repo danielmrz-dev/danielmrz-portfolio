@@ -1,5 +1,4 @@
 import {
-  ChangeDetectionStrategy,
   Component,
   CUSTOM_ELEMENTS_SCHEMA,
   inject,
@@ -8,7 +7,6 @@ import {
 } from '@angular/core';
 import { NgxSpinnerModule, NgxSpinnerService } from 'ngx-spinner';
 import { Language } from '../../../../models/language.type';
-import { ProjectsList } from '../../../../models/projects-list.type';
 import { TranslationsService } from '../../../../services/translations.service';
 
 @Component({
@@ -16,23 +14,17 @@ import { TranslationsService } from '../../../../services/translations.service';
   imports: [NgxSpinnerModule],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   templateUrl: './loading-spinner.component.html',
-  changeDetection: ChangeDetectionStrategy.OnPush,
   styleUrl: './loading-spinner.component.scss',
 })
 export class LoadingSpinnerComponent implements OnInit {
-  projectsList = input.required<ProjectsList | null>();
-
+  isLoading = input.required<boolean>();
   private readonly spinner = inject(NgxSpinnerService);
-  readonly _translationsService = inject(TranslationsService);
-  currentLanguage: Language = 'en';
+  readonly translationsService = inject(TranslationsService);
   portfolioLink =
     'https://www.frontendmentor.io/profile/danielmrz-dev/solutions';
 
   ngOnInit(): void {
     this.spinner.show();
-    this._translationsService.currentLanguage$.subscribe((lang) => {
-      this.currentLanguage = lang;
-    });
   }
 
   getTexts(lang: Language): string {

@@ -17,15 +17,15 @@
     </button>
     <mat-menu #menu xPosition="before" class="header-footer__mat-menu">
       <div class="header-footer__btns-container">
-        <button data-testId="pt" mat-menu-item class="header-footer__language-btns" (click)="changeLanguage('pt')">
+        <button data-testId="pt" mat-menu-item class="header-footer__language-btns" (click)="languagesService.changeLanguage('pt')">
           Português
           <img src="brasil.png" alt="">
         </button>
-        <button data-testId="es" mat-menu-item class="header-footer__language-btns" (click)="changeLanguage('es')">
+        <button data-testId="es" mat-menu-item class="header-footer__language-btns" (click)="languagesService.changeLanguage('es')">
           Español
           <img src="spain.png" alt="">
         </button>
-        <button data-testId="en" mat-menu-item class="header-footer__language-btns" (click)="changeLanguage('en')">
+        <button data-testId="en" mat-menu-item class="header-footer__language-btns" (click)="languagesService.changeLanguage('en')">
           English
           <img src="uk.png" alt="">
         </button>

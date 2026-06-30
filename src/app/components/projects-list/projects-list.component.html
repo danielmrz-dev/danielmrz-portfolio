@@ -1,37 +1,70 @@
+@let currentLanguage = translationsService.language();
+
 <section class="projects">
   <div class="projects__header">
-    <h4 class="projects__title">{{ getTexts(currentLanguage, 'title') }}</h4>
-    <app-button-with-border-bottom [buttonText]="getTexts(currentLanguage, 'contactButton')" targetComponent="contact-form" class="projects__header-btn"></app-button-with-border-bottom>
+    <h4 class="projects__title">{{ getTexts(currentLanguage, "title") }}</h4>
+    <app-button-with-border-bottom
+      [buttonText]="getTexts(currentLanguage, 'contactButton')"
+      targetComponent="contact-form"
+      class="projects__header-btn"
+    ></app-button-with-border-bottom>
   </div>
 
-  <app-loading-spinner [projectsList]="projectsList$ | async"></app-loading-spinner>
+  @if (projects.isLoading()) {
+    <app-loading-spinner
+      [isLoading]="projects.isLoading()"
+    ></app-loading-spinner>
+  }
+
+  @if (projects.error()) {
+    <h2>Houve um erro ao buscar os projetos.</h2>
+  }
 
   <ul class="projects__list">
-    @for (project of projectsList$ | async; track $index) {
+    @for (project of projects.value(); track $index) {
       <li class="projects__project">
         <picture class="projects__project-image">
-          <source [srcset]="project.image" media="(min-width: 600px)" type="image/webp">
-          <img [src]="project.image" alt="">
+          <source
+            [srcset]="project.image"
+            media="(min-width: 600px)"
+            type="image/webp"
+          />
+          <img [src]="project.image" alt="" />
         </picture>
         <div class="projects__project-name-and-stack">
-          <h5 class="projects__project-name"> {{ project.name }} </h5>
+          <h5 class="projects__project-name">{{ project.name }}</h5>
           <ul class="projects__project-stack-list">
             @for (technology of project.technologies; track technology) {
               <li class="projects__project-stack-item">
                 <img
                   [matTooltip]="technology.replace('_', ' ') | uppercase"
-                  [src]="technology | lowercase | technologyIcon" alt=""
-                  />
-                </li>
-              }
-            </ul>
-          </div>
-          <div class="projects__project-actions-btns" [ngClass]="{ 'hover': projectHovered === $index }" (mouseenter)="onMouseEnter($index)" (mouseleave)="onMouseLeave()">
-            <app-button-with-border-bottom [buttonText]="getTexts(currentLanguage, 'seeProjectButton')" [link]="project.liveSiteLink" targetComponent="" class="projects__header-btn"></app-button-with-border-bottom>
-            <app-button-with-border-bottom [buttonText]="getTexts(currentLanguage, 'seeCodeButton')" [link]="project.repositoryLink" targetComponent="" class="projects__header-btn"></app-button-with-border-bottom>
-          </div>
-        </li>
-      }
-    </ul>
-  </section>
-
+                  [src]="technology | lowercase | technologyIcon"
+                  alt=""
+                />
+              </li>
+            }
+          </ul>
+        </div>
+        <div
+          class="projects__project-actions-btns"
+          [ngClass]="{ hover: projectHovered === $index }"
+          (mouseenter)="onMouseEnter($index)"
+          (mouseleave)="onMouseLeave()"
+        >
+          <app-button-with-border-bottom
+            [buttonText]="getTexts(currentLanguage, 'seeProjectButton')"
+            [link]="project.liveSiteLink"
+            targetComponent=""
+            class="projects__header-btn"
+          ></app-button-with-border-bottom>
+          <app-button-with-border-bottom
+            [buttonText]="getTexts(currentLanguage, 'seeCodeButton')"
+            [link]="project.repositoryLink"
+            targetComponent=""
+            class="projects__header-btn"
+          ></app-button-with-border-bottom>
+        </div>
+      </li>
+    }
+  </ul>
+</section>

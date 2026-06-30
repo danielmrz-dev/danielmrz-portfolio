@@ -6,7 +6,7 @@
     @for (technology of technologiesList; track technology) {
       <li class="technologies__list-item">
         <h3 class="technologies__item-title">{{ technology.technology }}</h3>
-        <p class="technologies__item-description">{{ getTexts(currentLanguage, technology.xpYears) }}</p>
+        <p class="technologies__item-description">{{ getTexts(translationsService.language(), technology.xpYears) }}</p>
       </li>
     }
   </ul>

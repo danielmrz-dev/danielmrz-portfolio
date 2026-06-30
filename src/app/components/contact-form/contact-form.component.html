@@ -1,3 +1,5 @@
+@let currentLanguage = translationsService.language();
+
 <form class="contact-form" id="contact-form" [formGroup]="contactForm" (ngSubmit)="onSubmit(contactForm)">
   <div class="contact-form__text">
     <h6 class="contact-form__title"> {{ getTexts(currentLanguage, 'title') }} </h6>

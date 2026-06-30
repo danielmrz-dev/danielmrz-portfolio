@@ -1,18 +1,15 @@
 import { CommonModule } from '@angular/common';
 import {
-  ChangeDetectionStrategy,
   Component,
   CUSTOM_ELEMENTS_SCHEMA,
   inject,
-  OnInit,
+  resource,
 } from '@angular/core';
 import { MatTooltipModule } from '@angular/material/tooltip';
-import { Observable, of } from 'rxjs';
 import { Language } from '../../models/language.type';
-import { ProjectsList } from '../../models/projects-list.type';
+import { IProjeto } from '../../models/projeto.interface';
 import { TranslatedTexts } from '../../models/translation-texts.interface';
 import { TechnologyIconPipe } from '../../pipes/technology-icon.pipe';
-import { ProjectsService } from '../../services/projects.service';
 import { TranslationsService } from '../../services/translations.service';
 import { ButtonWithBorderBottomComponent } from '../button-with-border-bottom/button-with-border-bottom.component';
 import { LoadingSpinnerComponent } from './components/loading-spinner/loading-spinner.component';
@@ -28,23 +25,22 @@ import { LoadingSpinnerComponent } from './components/loading-spinner/loading-sp
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   templateUrl: './projects-list.component.html',
-  changeDetection: ChangeDetectionStrategy.OnPush,
   styleUrl: './projects-list.component.scss',
 })
-export class ProjectsListComponent implements OnInit {
-  projectsList$: Observable<ProjectsList> = of([]);
+export class ProjectsListComponent {
   projectHovered: number | null = null;
-  currentLanguage: Language = 'en';
 
-  private readonly _projectsService = inject(ProjectsService);
-  private readonly _translationsService = inject(TranslationsService);
+  protected readonly translationsService = inject(TranslationsService);
 
-  ngOnInit(): void {
-    this.projectsList$ = this._projectsService.getProjects();
-    this._translationsService.currentLanguage$.subscribe((lang) => {
-      this.currentLanguage = lang;
-    });
-  }
+  projects = resource<IProjeto[], unknown>({
+    loader: async () => {
+      const fetchedProjects = await fetch('http://localhost:8080/projetos');
+      if (!fetchedProjects.ok) {
+        throw new Error('Houve um erro ao buscar os projetos.');
+      }
+      return fetchedProjects.json();
+    },
+  });
 
   onMouseEnter(projectHoveredIndex: number) {
     this.projectHovered = projectHoveredIndex;

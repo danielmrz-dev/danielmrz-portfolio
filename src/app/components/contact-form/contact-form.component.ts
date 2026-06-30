@@ -1,11 +1,5 @@
 import { CommonModule } from '@angular/common';
-import {
-  ChangeDetectionStrategy,
-  Component,
-  ElementRef,
-  inject,
-  OnInit,
-} from '@angular/core';
+import { Component, ElementRef, inject, OnInit } from '@angular/core';
 import {
   FormBuilder,
   FormControl,
@@ -31,16 +25,14 @@ import { ModalEmailSentComponent } from '../modal-email-sent/modal-email-sent.co
     EmailValidatorDirective,
   ],
   templateUrl: './contact-form.component.html',
-  changeDetection: ChangeDetectionStrategy.OnPush,
   styleUrl: './contact-form.component.scss',
 })
 export class ContactFormComponent implements OnInit {
-  currentLanguage: Language = 'en';
   contactForm!: FormGroup;
   private readonly _fb = inject(FormBuilder);
   private readonly _elRef = inject(ElementRef);
   private readonly _emailService = inject(EmailService);
-  private readonly _translationsService = inject(TranslationsService);
+  readonly translationsService = inject(TranslationsService);
   readonly dialog = inject(MatDialog);
 
   ngOnInit(): void {
@@ -48,9 +40,6 @@ export class ContactFormComponent implements OnInit {
       name: ['', [Validators.required]],
       email: ['', [Validators.required]],
       message: ['', [Validators.required]],
-    });
-    this._translationsService.currentLanguage$.subscribe((lang) => {
-      this.currentLanguage = lang;
     });
   }
 
