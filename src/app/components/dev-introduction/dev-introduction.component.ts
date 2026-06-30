@@ -20,19 +20,19 @@ export class DevIntroductionComponent {
       pt: {
         introduction: `<span class="nice-to">Muito</span> prazer! Sou <span class="introduction__name">Daniel Mariz</span>.`,
         description:
-          'Sou um Desenvolvedor Front-end apaixonado por criar aplicativos web acessíveis e que encantam os usuários.',
+          'Sou um Desenvolvedor Full-Stack apaixonado por criar aplicativos web acessíveis e que encantam os usuários.',
         button: 'Contato',
       },
       en: {
         introduction: `<span class="nice-to">Nice to</span> meet you! I'm <span class="introduction__name">Daniel Mariz</span>.`,
         description:
-          'Based in the Brazil, I’m a front-end developer passionate about building accessible web apps that users love.',
+          'Based in the Brazil, I’m a Full-Stack developer passionate about building accessible web apps that users love.',
         button: 'Contact me',
       },
       es: {
         introduction: `<span class="nice-to">Mucho</span> gusto! Soy <span class="introduction__name">Daniel Mariz</span>.`,
         description:
-          'Soy desarrollador front-end en Brasil, dedicado a construir aplicaciones web accesibles que los usuarios aprecian.',
+          'Soy desarrollador Full-Stack en Brasil, dedicado a construir aplicaciones web accesibles que los usuarios aprecian.',
         button: 'Contáctame',
       },
     };

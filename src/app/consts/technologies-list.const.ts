@@ -29,4 +29,12 @@ export const technologiesList: TechnologiesList = [
       technology: "Node.js",
       xpYears: 2,
     },
+    {
+      technology: "Java",
+      xpYears: 1,
+    },
+    {
+      technology: "Spring",
+      xpYears: 1,
+    },
   ]
