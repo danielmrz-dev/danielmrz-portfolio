@@ -118,11 +118,11 @@ export class ContactFormComponent implements OnInit {
     this._emailService
       .sendEmail(form.value)
       .then(() => {
-        dialogRef.componentInstance.status = 'success';
+        dialogRef.componentInstance.status.set('success');
         form.reset();
       })
       .catch(() => {
-        dialogRef.componentInstance.status = 'error';
+        dialogRef.componentInstance.status.set('error');
         form.reset();
       });
   }

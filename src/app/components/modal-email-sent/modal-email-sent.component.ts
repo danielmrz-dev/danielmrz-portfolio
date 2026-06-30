@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { Component, inject, signal } from '@angular/core';
 import {
   MAT_DIALOG_DATA,
   MatDialogClose,
@@ -29,7 +29,7 @@ export class ModalEmailSentComponent {
   protected readonly data = inject<IFormData>(MAT_DIALOG_DATA);
   protected readonly translationsService = inject(TranslationsService);
 
-  status = this.data['status'] as string;
+  status = signal<string>(this.data['status'] as string);
 
   getTexts(lang: Language, type: string): string {
     const texts: TranslatedTexts = {

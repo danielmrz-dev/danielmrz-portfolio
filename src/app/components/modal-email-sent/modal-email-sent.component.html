@@ -3,12 +3,12 @@
 <div class="dialog-container">
   <mat-dialog-content>
 
-    @if (status === 'sending') {
+    @if (status() === 'sending') {
       <p> {{ getTexts(currentLanguage, 'sending') }} </p>
       <mat-spinner color="primary" diameter="50" strokeWidth="4"></mat-spinner>
     }
 
-    @if (status === 'success') {
+    @if (status() === 'success') {
       <div class="message-success">
         <img src="circle-check-solid.svg" alt="" class="icon-check">
         <span> {{ getTexts(currentLanguage, 'hi') }} <span> {{ data.name | uppercase }}!</span> </span>
@@ -16,13 +16,13 @@
       </div>
     }
 
-    @if (status === 'error') {
+    @if (status() === 'error') {
       <p> {{ getTexts(currentLanguage, 'error') }} </p>
     }
 
   </mat-dialog-content>
 
-  @if (status !== 'sending') {
+  @if (status() !== 'sending') {
     <app-button-with-border-bottom
       mat-dialog-close
       [buttonText]="getTexts(currentLanguage, 'close')"

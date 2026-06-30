@@ -74,4 +74,31 @@ export class ProjectsListComponent {
 
     return texts[lang][type];
   }
+
+  getEmptyListTexts(lang: Language): string {
+    const text: Record<Language, string> = {
+      pt: 'Estou preparando novos projetos para mostrar aqui.',
+      en: 'I’m working on new projects to share here.',
+      es: 'Estoy preparando nuevos proyectos para compartir aquí.',
+    };
+    return text[lang];
+  }
+
+  getLinkText(lang: Language): string {
+    const text: Record<Language, string> = {
+      pt: 'Link para meus projetos na plataforma Frontend Mentor',
+      en: 'Link to my projects on the Frontend Mentor platform',
+      es: 'Enlace a mis proyectos en la plataforma Frontend Mentor',
+    };
+    return `${text[lang]} ↗️`;
+  }
+
+  getErrorsText(lang: Language): string {
+    const text: Record<Language, string> = {
+      pt: 'Erro ao buscar projetos. Tente novamente mais tarde.',
+      en: 'Error fetching projects. Please try again later.',
+      es: 'Error al buscar proyectos. Inténtalo de nuevo más tarde.',
+    };
+    return `${text[lang]} ⛔`;
+  }
 }
