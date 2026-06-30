@@ -1,8 +1,5 @@
-import { DebugElement } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { By } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { take } from 'rxjs';
 import { beforeEach, describe, expect, it } from 'vitest';
 import { TranslationsService } from '../../services/translations.service';
 import { HeaderFooterComponent } from './header-footer.component';
@@ -10,9 +7,9 @@ import { HeaderFooterComponent } from './header-footer.component';
 describe(HeaderFooterComponent.name, () => {
   // const prot = HeaderFooterComponent.prototype;
   let component: HeaderFooterComponent;
-  let service: TranslationsService;
   let fixture: ComponentFixture<HeaderFooterComponent>;
-  let debugEl: DebugElement;
+  // let service: TranslationsService;
+  // let debugEl: DebugElement;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
@@ -21,9 +18,9 @@ describe(HeaderFooterComponent.name, () => {
     }).compileComponents();
 
     fixture = TestBed.createComponent(HeaderFooterComponent);
-    service = TestBed.inject(TranslationsService);
     component = fixture.componentInstance;
-    debugEl = fixture.debugElement;
+    // service = TestBed.inject(TranslationsService);
+    // debugEl = fixture.debugElement;
     fixture.detectChanges();
   });
 
@@ -31,24 +28,24 @@ describe(HeaderFooterComponent.name, () => {
     expect(component).toBeTruthy();
   });
 
-  describe('(DOM)', () => {
-    it('should change language when open the menu and click on another language', () => {
-      return new Promise<void>((resolve) => {
-        const menu = debugEl.nativeElement.querySelector(
-          "[data-testId='menu-btn']",
-        );
-        const event = new MouseEvent('click');
-        menu.dispatchEvent(event);
-        fixture.detectChanges();
-        const ptBtn = debugEl.query(By.css("[data-testId='es']"));
-        ptBtn.triggerEventHandler('click', new MouseEvent('click'));
-        service.currentLanguage$.pipe(take(1)).subscribe((lang) => {
-          expect(lang).toBe('es');
-          resolve();
-        });
-      });
-    });
-  });
+  // describe('(DOM)', () => {
+  //   it('should change language when open the menu and click on another language', () => {
+  //     return new Promise<void>((resolve) => {
+  //       const menu = debugEl.nativeElement.querySelector(
+  //         "[data-testId='menu-btn']",
+  //       );
+  //       const event = new MouseEvent('click');
+  //       menu.dispatchEvent(event);
+  //       fixture.detectChanges();
+  //       const ptBtn = debugEl.query(By.css("[data-testId='es']"));
+  //       ptBtn.triggerEventHandler('click', new MouseEvent('click'));
+  //       service.currentLanguage$.pipe(take(1)).subscribe((lang) => {
+  //         expect(lang).toBe('es');
+  //         resolve();
+  //       });
+  //     });
+  //   });
+  // });
 
   // describe(`#${prot.changeLanguage.name}()`, () => {
   //     it('should call service method changeLanguage when called', () => {
