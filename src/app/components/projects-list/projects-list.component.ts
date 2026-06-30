@@ -13,6 +13,7 @@ import { TechnologyIconPipe } from '../../pipes/technology-icon.pipe';
 import { TranslationsService } from '../../services/translations.service';
 import { ButtonWithBorderBottomComponent } from '../button-with-border-bottom/button-with-border-bottom.component';
 import { LoadingSpinnerComponent } from './components/loading-spinner/loading-spinner.component';
+import { API_URL } from '../../consts/api';
 
 @Component({
   selector: 'app-projects-list',
@@ -34,7 +35,7 @@ export class ProjectsListComponent {
 
   projects = resource<IProjeto[], unknown>({
     loader: async () => {
-      const fetchedProjects = await fetch('http://localhost:8080/projetos');
+      const fetchedProjects = await fetch(`${API_URL}/projetos`);
       if (!fetchedProjects.ok) {
         throw new Error('Houve um erro ao buscar os projetos.');
       }
